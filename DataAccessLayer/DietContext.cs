@@ -12,6 +12,9 @@ namespace DataAccessLayer
     internal class DietContext : DbContext
     {
         public DbSet<AppUser> AppUsers { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<Meal> Meals { get; set; }
+        public DbSet<MealCategory> MealCategories { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -24,6 +27,10 @@ namespace DataAccessLayer
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new AppUserMapping());
+            modelBuilder.ApplyConfiguration(new MealCategoryMapping());
+            modelBuilder.ApplyConfiguration(new MealMapping());
+            modelBuilder.ApplyConfiguration(new ProductMapping());
+            modelBuilder.ApplyConfiguration(new MealContentMapping());
             base.OnModelCreating(modelBuilder);
         }
     }
