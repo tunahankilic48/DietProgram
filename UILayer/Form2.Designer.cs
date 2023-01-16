@@ -198,7 +198,7 @@
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(128, 22);
             this.button5.TabIndex = 2;
-            this.button5.Text = "secili producti sil";
+            this.button5.Text = "secili producti silll";
             this.button5.UseVisualStyleBackColor = true;
             // 
             // dataGridView1
