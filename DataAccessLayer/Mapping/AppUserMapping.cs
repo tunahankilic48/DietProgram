@@ -72,15 +72,26 @@ namespace DataAccessLayer.Mapping
                 .HasColumnType("nvarchar")
                 .HasColumnOrder(10); // Password is Required, max length can be 100 characters and data type will be nvarchar in the database
 
+            builder.Property(x => x.IsMale)
+                .IsRequired()
+                .HasColumnType("bit")
+                .HasColumnOrder(11);
+
+            builder.Property(x => x.AddressId)
+                .IsRequired()
+                .HasColumnOrder(12);
+
             builder.Property(x => x.IsActive)
                 .IsRequired()
                 .HasColumnType("bit")
-                .HasColumnOrder(11); // IsActive will be used for email validation. It is required and data type will be bit in the database
+                .HasColumnOrder(13); // IsActive will be used for email validation. It is required and data type will be bit in the database
 
             builder.Property(x => x.ModifiedDate)
                 .IsRequired()
                 .HasColumnType("smalldatetime")
-                .HasColumnOrder(12); // Data type will be date, which means 'dd/mm/yyyy hh:mm:ss' in the database
+                .HasColumnOrder(14)
+                .HasDefaultValueSql("getdate()"); // Data type will be date, which means 'dd/mm/yyyy hh:mm:ss' in the database. Default value set as now.
+
         }
     }
 }

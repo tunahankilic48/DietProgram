@@ -15,6 +15,9 @@ namespace DataAccessLayer
         public DbSet<Product> Products { get; set; }
         public DbSet<Meal> Meals { get; set; }
         public DbSet<MealCategory> MealCategories { get; set; }
+        public DbSet<Address> Addresses { get; set; }
+        public DbSet<Country> Countries { get; set; }
+        public DbSet<City> Cities { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -31,6 +34,9 @@ namespace DataAccessLayer
             modelBuilder.ApplyConfiguration(new MealMapping());
             modelBuilder.ApplyConfiguration(new ProductMapping());
             modelBuilder.ApplyConfiguration(new MealContentMapping());
+            modelBuilder.ApplyConfiguration(new CountryMapping());
+            modelBuilder.ApplyConfiguration(new CityMapping());
+            modelBuilder.ApplyConfiguration(new AddressMapping());
             base.OnModelCreating(modelBuilder);
         }
     }

@@ -20,7 +20,7 @@ namespace DataAccessLayer.Mapping
             builder.Property(x => x.MealId)  
                 .HasColumnOrder(1); // Column order was set.
 
-            builder.Property(x => x.MealId)
+            builder.Property(x => x.ProductId)
                 .HasColumnOrder(2); // Column order was set.
 
             builder.Property(x => x.Quantity)

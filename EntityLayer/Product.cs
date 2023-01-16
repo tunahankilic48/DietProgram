@@ -10,6 +10,7 @@ namespace EntityLayer
     {
         public string? Name { get; set; }
         public int? Calorie { get; set; }
+        public string? QuantityPerUnit { get; set; } // Fluent api
 
         // Navigation Property
 

@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Mapping
 {
-    internal class MealMapping : IEntityTypeConfiguration<Meal>
+    internal class CityMapping : IEntityTypeConfiguration<City>
     {
-        public void Configure(EntityTypeBuilder<Meal> builder)
+        public void Configure(EntityTypeBuilder<City> builder)
         {
-            builder.ToTable("Meal"); // Table name will be Users in the database
+            builder.ToTable("Cities"); // Table name will be Users in the database
 
             builder.HasKey(x => x.Id); // Set as Primary Key
 
@@ -21,11 +21,13 @@ namespace DataAccessLayer.Mapping
                 .UseIdentityColumn(1, 1)
                 .HasColumnOrder(1); // Identity property was gained to the primary key. Column order was set.
 
-            builder.Property(x=>x.UserId)
+            builder.Property(x => x.Name)
                 .IsRequired()
-                .HasColumnOrder(2);
+                .HasMaxLength(30)
+                .HasColumnType("nvarchar")
+                .HasColumnOrder(2); // City Name is Required, max length can be 30 characters and data type will be nvarchar in the database
 
-            builder.Property(x=>x.MealCategoryId)
+            builder.Property(x => x.CountryId)
                 .IsRequired()
                 .HasColumnOrder(3);
 
@@ -37,15 +39,12 @@ namespace DataAccessLayer.Mapping
             builder.Property(x => x.ModifiedDate)
                 .IsRequired()
                 .HasColumnType("smalldatetime")
-                .HasColumnOrder(5); // Data type will be date, which means 'dd/mm/yyyy hh:mm:ss' in the database
+                .HasColumnOrder(5)
+                .HasDefaultValueSql("getdate()"); // Data type will be date, which means 'dd/mm/yyyy hh:mm:ss' in the database. Default value set as now.
 
-            builder.HasOne<AppUser>(x=>x.User)
-                .WithMany(x=>x.Meals)
-                .HasForeignKey(x=>x.UserId); // One to Many Releation with Users
-
-            builder.HasOne<MealCategory>(x => x.MealCategory)
-                .WithMany(x => x.Meals)
-                .HasForeignKey(x => x.MealCategoryId); // One to Many Reletion with MealCategory
+            builder.HasOne<Country>(x => x.Country)
+                .WithMany(x => x.City)
+                .HasForeignKey(x => x.CountryId);
         }
     }
 }

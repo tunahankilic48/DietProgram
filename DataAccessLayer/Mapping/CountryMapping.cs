@@ -1,6 +1,6 @@
 ﻿using EntityLayer;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,12 +9,11 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Mapping
 {
-
-    internal class MealCategoryMapping : IEntityTypeConfiguration<MealCategory>
+    internal class CountryMapping : IEntityTypeConfiguration<Country>
     {
-        public void Configure(EntityTypeBuilder<MealCategory> builder)
+        public void Configure(EntityTypeBuilder<Country> builder)
         {
-            builder.ToTable("MealCategory"); // Table name will be Users in the database
+            builder.ToTable("Countries"); // Table name will be Users in the database
 
             builder.HasKey(x => x.Id); // Set as Primary Key
 
@@ -24,9 +23,9 @@ namespace DataAccessLayer.Mapping
 
             builder.Property(x => x.Name)
                 .IsRequired()
-                .HasMaxLength(20)
+                .HasMaxLength(30)
                 .HasColumnType("nvarchar")
-                .HasColumnOrder(2); // First Name is Required, max length can be 20 characters and data type will be nvarchar in the database
+                .HasColumnOrder(2); // Country Name is Required, max length can be 30 characters and data type will be nvarchar in the database
 
             builder.Property(x => x.CreatedDate)
                 .IsRequired()
@@ -36,8 +35,10 @@ namespace DataAccessLayer.Mapping
             builder.Property(x => x.ModifiedDate)
                 .IsRequired()
                 .HasColumnType("smalldatetime")
-                .HasColumnOrder(4); // Data type will be date, which means 'dd/mm/yyyy hh:mm:ss' in the database
+                .HasColumnOrder(4)
+                .HasDefaultValueSql("getdate()"); // Data type will be date, which means 'dd/mm/yyyy hh:mm:ss' in the database. Default value set as now.
+
+
         }
     }
-
 }
