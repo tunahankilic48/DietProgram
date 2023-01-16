@@ -19,7 +19,7 @@ namespace EntityLayer
         public bool? IsActive { get; set; }
 
         // Navigation Properties
-        public List<Meal> Meals { get; set; }
+        public List<Meal>? Meals { get; set; }
 
     }
 }

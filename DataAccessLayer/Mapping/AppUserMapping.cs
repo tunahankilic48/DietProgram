@@ -80,7 +80,8 @@ namespace DataAccessLayer.Mapping
             builder.Property(x => x.ModifiedDate)
                 .IsRequired()
                 .HasColumnType("smalldatetime")
-                .HasColumnOrder(12); // Data type will be date, which means 'dd/mm/yyyy hh:mm:ss' in the database
+                .HasColumnOrder(12)
+                .HasDefaultValueSql("getdate()"); // Data type will be date, which means 'dd/mm/yyyy hh:mm:ss' in the database. Default value set as now.
         }
     }
 }

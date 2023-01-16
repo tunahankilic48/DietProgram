@@ -13,7 +13,7 @@ namespace DataAccessLayer.Mapping
     {
         public void Configure(EntityTypeBuilder<Meal> builder)
         {
-            builder.ToTable("MealCategory"); // Table name will be Users in the database
+            builder.ToTable("Meal"); // Table name will be Users in the database
 
             builder.HasKey(x => x.Id); // Set as Primary Key
 
