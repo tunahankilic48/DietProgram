@@ -16,5 +16,16 @@ namespace UILayer
         {
             InitializeComponent();
         }
+
+        private void frmNewAccount_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        #region Buttons
+        #endregion
+
+        #region Methots
+        #endregion
     }
 }
