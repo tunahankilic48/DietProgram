@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace UILayer
 {
-    public partial class Form2 : Form
+    public partial class frmMeal : Form
     {
-        public Form2()
+        public frmMeal()
         {
             InitializeComponent();
         }
