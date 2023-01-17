@@ -42,7 +42,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,7 +66,6 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.button5);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label7);
@@ -104,7 +102,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(222, 85);
+            this.label4.Location = new System.Drawing.Point(248, 305);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(148, 20);
             this.label4.TabIndex = 0;
@@ -140,7 +138,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(222, 45);
+            this.label2.Location = new System.Drawing.Point(248, 265);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(218, 20);
             this.label2.TabIndex = 0;
@@ -182,15 +180,6 @@
             this.button4.Text = "Hesap bilgilerini güncelle";
             this.button4.UseVisualStyleBackColor = true;
             // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(215, 182);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(235, 86);
-            this.button5.TabIndex = 0;
-            this.button5.Text = "Deneme";
-            this.button5.UseVisualStyleBackColor = true;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -225,6 +214,5 @@
         private Label label1;
         private Button button3;
         private Button button4;
-        private Button button5;
     }
 }
