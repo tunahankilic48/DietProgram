@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace UILayer
 {
-    public partial class Form1 : Form
+    public partial class HeightandWeightUpdate : Form
     {
-        public Form1()
+        public HeightandWeightUpdate()
         {
             InitializeComponent();
         }
