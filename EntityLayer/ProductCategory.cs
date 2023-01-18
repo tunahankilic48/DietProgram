@@ -6,17 +6,16 @@ using System.Threading.Tasks;
 
 namespace EntityLayer
 {
-    public class Country : BaseClass
+    public class ProductCategory : BaseClass
     {
-        public Country()
+        public ProductCategory()
         {
-            Cities= new List<City>();
-            Addresses= new List<Address>();
+            Products = new List<Product>();
         }
+
         public string? Name { get; set; }
 
         // Navigation Properties
-        public List<City>? Cities{ get; set; }
-        public List<Address>? Addresses { get; set; }
+        public List<Product>? Products { get; set; }
     }
 }

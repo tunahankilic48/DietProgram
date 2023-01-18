@@ -18,12 +18,14 @@ namespace DataAccessLayer
         public DbSet<Address> Addresses { get; set; }
         public DbSet<Country> Countries { get; set; }
         public DbSet<City> Cities { get; set; }
+        public DbSet<ProductCategory> ProductCategories { get; set; }
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Server=DESKTOP-A10URF2\\SQLEXPRESS;Database=DietProgramDb;Encrypt=false;Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer("Server=.;Database=DietProgramDb;Encrypt=false;Trusted_Connection=True;"); // Change connection string !!!
             }
         }
 
@@ -37,6 +39,7 @@ namespace DataAccessLayer
             modelBuilder.ApplyConfiguration(new CountryMapping());
             modelBuilder.ApplyConfiguration(new CityMapping());
             modelBuilder.ApplyConfiguration(new AddressMapping());
+            modelBuilder.ApplyConfiguration(new ProductCategoryMapping());
             base.OnModelCreating(modelBuilder);
         }
     }

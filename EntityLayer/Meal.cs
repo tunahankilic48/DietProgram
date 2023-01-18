@@ -8,6 +8,10 @@ namespace EntityLayer
 {
     public class Meal : BaseClass
     {
+        public Meal()
+        {
+            MealContents = new List<MealContent>();
+        }
         public int? UserId { get; set; }
         public int? MealCategoryId { get; set; }
 

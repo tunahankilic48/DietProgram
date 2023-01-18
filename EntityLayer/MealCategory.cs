@@ -8,6 +8,10 @@ namespace EntityLayer
 {
     public class MealCategory : BaseClass
     {
+        public MealCategory()
+        {
+            Meals= new List<Meal>();
+        }
         public string? Name { get; set; }
 
         // Navigation Properties

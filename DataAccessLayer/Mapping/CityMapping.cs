@@ -43,7 +43,7 @@ namespace DataAccessLayer.Mapping
                 .HasDefaultValueSql("getdate()"); // Data type will be date, which means 'dd/mm/yyyy hh:mm:ss' in the database. Default value set as now.
 
             builder.HasOne<Country>(x => x.Country)
-                .WithMany(x => x.City)
+                .WithMany(x => x.Cities)
                 .HasForeignKey(x => x.CountryId);
         }
     }

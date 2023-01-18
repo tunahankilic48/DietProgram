@@ -9,6 +9,10 @@ namespace EntityLayer
 {
     public class AppUser : BaseClass
     {
+        public AppUser()
+        {
+            Meals= new List<Meal>();
+        }
         // to do: default values will be added in the created date 
         public string? FirstName { get; set; }
         public string? MiddleName { get; set; }
