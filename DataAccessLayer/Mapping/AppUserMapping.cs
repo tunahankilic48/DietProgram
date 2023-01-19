@@ -18,10 +18,10 @@ namespace DataAccessLayer.Mapping
             builder.HasKey(x => x.Id); // Set as Primary Key
 
             builder.Property(x => x.Id)
-                .UseIdentityColumn(1,1)
+                .UseIdentityColumn(1, 1)
                 .HasColumnOrder(1); // Identity property was gained to the primary key. Column order was set.
 
-            builder.Property(x=>x.FirstName)
+            builder.Property(x => x.FirstName)
                 .IsRequired()
                 .HasMaxLength(20)
                 .HasColumnType("nvarchar")
@@ -66,7 +66,7 @@ namespace DataAccessLayer.Mapping
             builder.HasIndex(x => x.Email)
                 .IsUnique(); // Email must be unique which means an email can be used for an account
 
-            builder.Property(x=>x.Password)
+            builder.Property(x => x.Password)
                 .IsRequired()
                 .HasMaxLength(20)
                 .HasColumnType("nvarchar")
@@ -91,6 +91,8 @@ namespace DataAccessLayer.Mapping
                 .HasColumnType("smalldatetime")
                 .HasColumnOrder(14)
                 .HasDefaultValueSql("getdate()"); // Data type will be date, which means 'dd/mm/yyyy hh:mm:ss' in the database. Default value set as now.
+
+
 
             builder.Ignore(x => x.Name); // Not mapped in the database
             builder.Ignore(x => x.BodyMassIndex);
