@@ -26,8 +26,8 @@ namespace UILayer
         private void frmMainPage_Load(object sender, EventArgs e)
         {
             context= new DietContext();
-            weightsAndHeights = new WeightsAndHeights();
             weightsAndHeights = context.UsersWeightsAndHeights.Where(x => x.AppUserId == _user.Id).OrderByDescending(x => x.CreatedDate).FirstOrDefault();
+            weightsAndHeights.AppUser= _user;
             lblUserName.Text = _user.Name;
             lblUserLastName.Text = _user.LastName;
             lblUserHeight.Text = weightsAndHeights.Height.ToString() + " cm";
