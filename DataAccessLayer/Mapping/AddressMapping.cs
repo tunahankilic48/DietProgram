@@ -21,7 +21,7 @@ namespace DataAccessLayer.Mapping
                 .UseIdentityColumn(1, 1)
                 .HasColumnOrder(1); // Identity property was gained to the primary key. Column order was set.
 
-            builder.Property(x => x.CountryId)
+            builder.Property(x => x.CityId)
                 .IsRequired()
                 .HasColumnOrder(2);
 
@@ -40,7 +40,7 @@ namespace DataAccessLayer.Mapping
                 .HasColumnOrder(5)
                 .HasDefaultValueSql("getdate()"); // Data type will be date, which means 'dd/mm/yyyy hh:mm:ss' in the database. Default value set as now.
 
-            builder.HasOne(x => x.Country)
+            builder.HasOne(x => x.City)
                 .WithMany(x => x.Addresses); // one to many Relation
 
             builder.HasOne<AppUser>(x => x.AppUser)

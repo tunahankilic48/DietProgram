@@ -1,4 +1,5 @@
-﻿using EntityLayer;
+﻿using DataAccessLayer;
+using EntityLayer;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,24 +15,27 @@ namespace UILayer
     public partial class frmMainPage : Form
     {
         private AppUser _user;
+        DietContext context;
+        WeightsAndHeights weightsAndHeights;
 
         public frmMainPage(AppUser user)
         {
             InitializeComponent();
             _user = user;
         }
-
         private void frmMainPage_Load(object sender, EventArgs e)
         {
-            //lblUserName.Text = _user.Name;
-            //lblUserLastName.Text = _user.LastName;
-            //lblUserLength.Text = _user.Length.ToString() + " cm";
-            //lblUserWeight.Text = _user.Weigth.ToString() + " kg";
-            //lblUserBodyMassIndex.Text = _user.BodyMassIndex.ToString();
-            //lblUserCaloriesNeeded.Text = _user.DailyRequiredCalori.ToString() + " Calorie";
+            context= new DietContext();
+            weightsAndHeights = new WeightsAndHeights();
+            weightsAndHeights = context.UsersWeightsAndHeights.Where(x => x.AppUserId == _user.Id).OrderByDescending(x => x.CreatedDate).FirstOrDefault();
+            lblUserName.Text = _user.Name;
+            lblUserLastName.Text = _user.LastName;
+            lblUserHeight.Text = weightsAndHeights.Height.ToString() + " cm";
+            lblUserWeight.Text = weightsAndHeights.Weight.ToString() + " kg";
+            lblUserBodyMassIndex.Text = weightsAndHeights.BodyMassIndex.ToString();
+            lblUserCaloriesNeeded.Text = weightsAndHeights.DailyRequiredCalori.ToString() + " Calorie";
 
         }
-
         private void btnMeal_Click(object sender, EventArgs e)
         {
             frmMeal frm = new frmMeal();
@@ -55,7 +59,7 @@ namespace UILayer
 
         private void btnHeightandWeightUpdate_Click(object sender, EventArgs e)
         {
-            HeightandWeightUpdate frm = new HeightandWeightUpdate();
+            HeightandWeightUpdate frm = new HeightandWeightUpdate(weightsAndHeights, this);
             frm.Show();
             this.Hide();
         }

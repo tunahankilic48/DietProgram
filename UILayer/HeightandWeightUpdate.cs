@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DataAccessLayer;
+using EntityLayer;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +14,66 @@ namespace UILayer
 {
     public partial class HeightandWeightUpdate : Form
     {
-        public HeightandWeightUpdate()
+        private WeightsAndHeights _weightsAndHeights;
+        private frmMainPage _frm;
+        DietContext context;
+        ErrorProvider erpWeight, erpHeight;
+
+        public HeightandWeightUpdate(WeightsAndHeights weightsAndHeights, frmMainPage frm)
         {
             InitializeComponent();
+            _weightsAndHeights = weightsAndHeights;
+            _frm = frm;
+        }
+
+        private void HeightandWeightUpdate_Load(object sender, EventArgs e)
+        {
+            context = new DietContext();
+            erpWeight = new ErrorProvider();
+            erpWeight = new ErrorProvider();
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            decimal weight = 0;
+            int height = 0;
+            if (decimal.TryParse(txtWeight.Text, out weight) && int.TryParse(txtHeight.Text, out height) && !string.IsNullOrEmpty(txtWeight.Text) && !string.IsNullOrEmpty(txtHeight.Text) && weight > 0 && height > 0)
+            {
+                _weightsAndHeights.Weight = weight;
+                _weightsAndHeights.Height = height;
+                context.UsersWeightsAndHeights.Update(_weightsAndHeights);
+                try
+                {
+                    context.SaveChanges();
+                    MessageBox.Show("Height and weight have updated successfully", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    _frm.Show();
+                    this.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+            else
+            {
+                if (weight <= 0)
+                {
+                    erpWeight.SetError(txtWeight, "Weight must be positive decimal");
+                }
+                else
+                {
+                    erpWeight.Clear();
+                }
+                if (height <= 0)
+                {
+                    erpHeight.SetError(txtHeight, "Height must bepositive integer");
+                }
+                else
+                {
+                    erpHeight.Clear();
+                }
+            }
+
         }
     }
 }

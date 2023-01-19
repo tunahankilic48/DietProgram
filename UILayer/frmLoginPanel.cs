@@ -28,7 +28,7 @@ namespace UILayer
                 }
                 else
                 {
-                    MessageBox.Show("Pasword is not correct. Please check the password.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Password is not correct. Please check the password.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     Method.CleanTheControls(this);
                 }
 

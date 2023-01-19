@@ -8,12 +8,12 @@ namespace EntityLayer
 {
     public class WeightsAndHeights : BaseClass
     {
-        public int Height { get; set; }
-        public int Weight { get; set; }
+        public int? Height { get; set; }
+        public decimal? Weight { get; set; }
 
-        public int AppUserId { get; set; }
+        public int? AppUserId { get; set; }
 
-        public decimal BodyMassIndex //boy ve kilo 
+        public decimal? BodyMassIndex //boy ve kilo 
         {
             get
             {
@@ -21,7 +21,7 @@ namespace EntityLayer
                 return Math.Round((decimal)Weight * squareOfLength, 2);
             }
         }
-        public decimal DailyRequiredCalori
+        public decimal? DailyRequiredCalori
         {
             get
             {

@@ -43,16 +43,11 @@ namespace DataAccessLayer.Mapping
                 .HasColumnType("date")
                 .HasColumnOrder(5); // Data type will be date, which means 'dd/mm/yyyy' in the database
 
-            builder.Property(x => x.CreatedDate)
-                .IsRequired()
-                .HasColumnType("smalldatetime")
-                .HasColumnOrder(6); // Data type will be date, which means 'dd/mm/yyyy hh:mm:ss' in the database
-
             builder.Property(x => x.Email)
                 .IsRequired()
                 .HasMaxLength(100)
                 .HasColumnType("nvarchar")
-                .HasColumnOrder(7); // Email is Required, max length can be 100 characters and data type will be nvarchar in the database
+                .HasColumnOrder(6); // Email is Required, max length can be 100 characters and data type will be nvarchar in the database
             builder.HasIndex(x => x.Email)
                 .IsUnique(); // Email must be unique which means an email can be used for an account
 
@@ -60,21 +55,25 @@ namespace DataAccessLayer.Mapping
                 .IsRequired()
                 .HasMaxLength(20)
                 .HasColumnType("nvarchar")
-                .HasColumnOrder(8); // Password is Required, max length can be 100 characters and data type will be nvarchar in the database
+                .HasColumnOrder(7); // Password is Required, max length can be 100 characters and data type will be nvarchar in the database
 
             builder.Property(x => x.IsMale)
                 .IsRequired()
                 .HasColumnType("bit")
-                .HasColumnOrder(9);
+                .HasColumnOrder(8);
 
             builder.Property(x => x.AddressId)
-                .IsRequired()
-                .HasColumnOrder(10);
+                .HasColumnOrder(9);
 
             builder.Property(x => x.IsActive)
                 .IsRequired()
                 .HasColumnType("bit")
-                .HasColumnOrder(11); // IsActive will be used for email validation. It is required and data type will be bit in the database
+                .HasColumnOrder(10); // IsActive will be used for email validation. It is required and data type will be bit in the database
+
+            builder.Property(x => x.CreatedDate)
+                .IsRequired()
+                .HasColumnType("smalldatetime")
+                .HasColumnOrder(11); // Data type will be date, which means 'dd/mm/yyyy hh:mm:ss' in the database
 
             builder.Property(x => x.ModifiedDate)
                 .IsRequired()

@@ -8,11 +8,16 @@ namespace EntityLayer
 {
     public class City : BaseClass
     {
+        public City()
+        {
+            Addresses = new List<Address>();
+        }
         public string? Name { get; set; }
         public int? CountryId { get; set; }
 
         // Navigation Properties
         public Country? Country{ get; set; }
+        public List<Address> Addresses { get; set; }
 
 
     }
