@@ -31,225 +31,256 @@
             this.btnMeal = new System.Windows.Forms.Button();
             this.btnReports = new System.Windows.Forms.Button();
             this.grpUserInformation = new System.Windows.Forms.GroupBox();
+            this.lblUserBodyMassIndex = new System.Windows.Forms.Label();
+            this.btnUpdateAccountInformation = new System.Windows.Forms.Button();
+            this.btnHeightandWeightUpdate = new System.Windows.Forms.Button();
+            this.lblUserWeight = new System.Windows.Forms.Label();
+            this.lblUserLength = new System.Windows.Forms.Label();
+            this.lblUserLastName = new System.Windows.Forms.Label();
+            this.lblUserName = new System.Windows.Forms.Label();
             this.lblBodyMassIndex = new System.Windows.Forms.Label();
             this.lblWeight = new System.Windows.Forms.Label();
-            this.lblCaloriesTakenToday2 = new System.Windows.Forms.Label();
+            this.lblUserCaloriesTakenToday = new System.Windows.Forms.Label();
             this.lblSurname = new System.Windows.Forms.Label();
             this.lblCaloriesTakenToday = new System.Windows.Forms.Label();
-            this.lblHeight = new System.Windows.Forms.Label();
-            this.lblCaloriesNeeded2 = new System.Windows.Forms.Label();
+            this.lblLength = new System.Windows.Forms.Label();
+            this.lblUserCaloriesNeeded = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.lblCaloriesNeeded = new System.Windows.Forms.Label();
-            this.btnHeightandWeightUpdate = new System.Windows.Forms.Button();
-            this.btnUpdateAccountInformation = new System.Windows.Forms.Button();
-            this.lblName2 = new System.Windows.Forms.Label();
-            this.lblSurname2 = new System.Windows.Forms.Label();
-            this.lblHeight2 = new System.Windows.Forms.Label();
-            this.lblWeight2 = new System.Windows.Forms.Label();
-            this.lblBodyMassIndex2 = new System.Windows.Forms.Label();
             this.grpUserInformation.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnMeal
             // 
-            this.btnMeal.Location = new System.Drawing.Point(12, 450);
+            this.btnMeal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(249)))), ((int)(((byte)(251)))));
+            this.btnMeal.Location = new System.Drawing.Point(8, 411);
+            this.btnMeal.Margin = new System.Windows.Forms.Padding(4);
             this.btnMeal.Name = "btnMeal";
-            this.btnMeal.Size = new System.Drawing.Size(216, 86);
+            this.btnMeal.Size = new System.Drawing.Size(250, 80);
             this.btnMeal.TabIndex = 0;
             this.btnMeal.Text = "MEAL";
-            this.btnMeal.UseVisualStyleBackColor = true;
+            this.btnMeal.UseVisualStyleBackColor = false;
+            this.btnMeal.Click += new System.EventHandler(this.btnMeal_Click);
             // 
             // btnReports
             // 
-            this.btnReports.Location = new System.Drawing.Point(234, 450);
+            this.btnReports.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(249)))), ((int)(((byte)(251)))));
+            this.btnReports.Location = new System.Drawing.Point(279, 411);
+            this.btnReports.Margin = new System.Windows.Forms.Padding(4);
             this.btnReports.Name = "btnReports";
-            this.btnReports.Size = new System.Drawing.Size(235, 86);
+            this.btnReports.Size = new System.Drawing.Size(250, 80);
             this.btnReports.TabIndex = 0;
             this.btnReports.Text = "REPORTS";
-            this.btnReports.UseVisualStyleBackColor = true;
+            this.btnReports.UseVisualStyleBackColor = false;
+            this.btnReports.Click += new System.EventHandler(this.btnReports_Click);
             // 
             // grpUserInformation
             // 
-            this.grpUserInformation.Controls.Add(this.lblBodyMassIndex2);
-            this.grpUserInformation.Controls.Add(this.lblWeight2);
-            this.grpUserInformation.Controls.Add(this.lblHeight2);
-            this.grpUserInformation.Controls.Add(this.lblSurname2);
-            this.grpUserInformation.Controls.Add(this.lblName2);
+            this.grpUserInformation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(236)))), ((int)(((byte)(238)))));
+            this.grpUserInformation.Controls.Add(this.lblUserBodyMassIndex);
+            this.grpUserInformation.Controls.Add(this.btnUpdateAccountInformation);
+            this.grpUserInformation.Controls.Add(this.btnReports);
+            this.grpUserInformation.Controls.Add(this.btnHeightandWeightUpdate);
+            this.grpUserInformation.Controls.Add(this.lblUserWeight);
+            this.grpUserInformation.Controls.Add(this.lblUserLength);
+            this.grpUserInformation.Controls.Add(this.lblUserLastName);
+            this.grpUserInformation.Controls.Add(this.btnMeal);
+            this.grpUserInformation.Controls.Add(this.lblUserName);
             this.grpUserInformation.Controls.Add(this.lblBodyMassIndex);
             this.grpUserInformation.Controls.Add(this.lblWeight);
-            this.grpUserInformation.Controls.Add(this.lblCaloriesTakenToday2);
+            this.grpUserInformation.Controls.Add(this.lblUserCaloriesTakenToday);
             this.grpUserInformation.Controls.Add(this.lblSurname);
             this.grpUserInformation.Controls.Add(this.lblCaloriesTakenToday);
-            this.grpUserInformation.Controls.Add(this.lblHeight);
-            this.grpUserInformation.Controls.Add(this.lblCaloriesNeeded2);
+            this.grpUserInformation.Controls.Add(this.lblLength);
+            this.grpUserInformation.Controls.Add(this.lblUserCaloriesNeeded);
             this.grpUserInformation.Controls.Add(this.lblName);
             this.grpUserInformation.Controls.Add(this.lblCaloriesNeeded);
-            this.grpUserInformation.Location = new System.Drawing.Point(12, 12);
+            this.grpUserInformation.Location = new System.Drawing.Point(13, 18);
+            this.grpUserInformation.Margin = new System.Windows.Forms.Padding(4);
             this.grpUserInformation.Name = "grpUserInformation";
-            this.grpUserInformation.Size = new System.Drawing.Size(457, 414);
+            this.grpUserInformation.Padding = new System.Windows.Forms.Padding(4);
+            this.grpUserInformation.Size = new System.Drawing.Size(537, 597);
             this.grpUserInformation.TabIndex = 1;
             this.grpUserInformation.TabStop = false;
             this.grpUserInformation.Text = "User Information";
             // 
+            // lblUserBodyMassIndex
+            // 
+            this.lblUserBodyMassIndex.AutoSize = true;
+            this.lblUserBodyMassIndex.Location = new System.Drawing.Point(238, 250);
+            this.lblUserBodyMassIndex.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblUserBodyMassIndex.Name = "lblUserBodyMassIndex";
+            this.lblUserBodyMassIndex.Size = new System.Drawing.Size(71, 30);
+            this.lblUserBodyMassIndex.TabIndex = 5;
+            this.lblUserBodyMassIndex.Text = "label7";
+            // 
+            // btnUpdateAccountInformation
+            // 
+            this.btnUpdateAccountInformation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(249)))), ((int)(((byte)(251)))));
+            this.btnUpdateAccountInformation.Location = new System.Drawing.Point(279, 499);
+            this.btnUpdateAccountInformation.Margin = new System.Windows.Forms.Padding(4);
+            this.btnUpdateAccountInformation.Name = "btnUpdateAccountInformation";
+            this.btnUpdateAccountInformation.Size = new System.Drawing.Size(250, 80);
+            this.btnUpdateAccountInformation.TabIndex = 0;
+            this.btnUpdateAccountInformation.Text = "UPDATE ACCOUNT INFORMATION";
+            this.btnUpdateAccountInformation.UseVisualStyleBackColor = false;
+            this.btnUpdateAccountInformation.Click += new System.EventHandler(this.btnUpdateAccountInformation_Click);
+            // 
+            // btnHeightandWeightUpdate
+            // 
+            this.btnHeightandWeightUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(249)))), ((int)(((byte)(251)))));
+            this.btnHeightandWeightUpdate.Location = new System.Drawing.Point(9, 499);
+            this.btnHeightandWeightUpdate.Margin = new System.Windows.Forms.Padding(4);
+            this.btnHeightandWeightUpdate.Name = "btnHeightandWeightUpdate";
+            this.btnHeightandWeightUpdate.Size = new System.Drawing.Size(250, 80);
+            this.btnHeightandWeightUpdate.TabIndex = 0;
+            this.btnHeightandWeightUpdate.Text = "HEIGHT AND WEIGHT UPDATE";
+            this.btnHeightandWeightUpdate.UseVisualStyleBackColor = false;
+            this.btnHeightandWeightUpdate.Click += new System.EventHandler(this.btnHeightandWeightUpdate_Click);
+            // 
+            // lblUserWeight
+            // 
+            this.lblUserWeight.AutoSize = true;
+            this.lblUserWeight.Location = new System.Drawing.Point(238, 201);
+            this.lblUserWeight.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblUserWeight.Name = "lblUserWeight";
+            this.lblUserWeight.Size = new System.Drawing.Size(71, 30);
+            this.lblUserWeight.TabIndex = 4;
+            this.lblUserWeight.Text = "label6";
+            // 
+            // lblUserLength
+            // 
+            this.lblUserLength.AutoSize = true;
+            this.lblUserLength.Location = new System.Drawing.Point(238, 152);
+            this.lblUserLength.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblUserLength.Name = "lblUserLength";
+            this.lblUserLength.Size = new System.Drawing.Size(71, 30);
+            this.lblUserLength.TabIndex = 3;
+            this.lblUserLength.Text = "label5";
+            // 
+            // lblUserLastName
+            // 
+            this.lblUserLastName.AutoSize = true;
+            this.lblUserLastName.Location = new System.Drawing.Point(238, 103);
+            this.lblUserLastName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblUserLastName.Name = "lblUserLastName";
+            this.lblUserLastName.Size = new System.Drawing.Size(71, 30);
+            this.lblUserLastName.TabIndex = 2;
+            this.lblUserLastName.Text = "label3";
+            // 
+            // lblUserName
+            // 
+            this.lblUserName.AutoSize = true;
+            this.lblUserName.Location = new System.Drawing.Point(238, 54);
+            this.lblUserName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblUserName.Name = "lblUserName";
+            this.lblUserName.Size = new System.Drawing.Size(71, 30);
+            this.lblUserName.TabIndex = 1;
+            this.lblUserName.Text = "label1";
+            // 
             // lblBodyMassIndex
             // 
             this.lblBodyMassIndex.AutoSize = true;
-            this.lblBodyMassIndex.Location = new System.Drawing.Point(4, 174);
+            this.lblBodyMassIndex.Location = new System.Drawing.Point(60, 250);
+            this.lblBodyMassIndex.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblBodyMassIndex.Name = "lblBodyMassIndex";
-            this.lblBodyMassIndex.Size = new System.Drawing.Size(123, 20);
+            this.lblBodyMassIndex.Size = new System.Drawing.Size(182, 30);
             this.lblBodyMassIndex.TabIndex = 0;
             this.lblBodyMassIndex.Text = "Body Mass Index:";
             // 
             // lblWeight
             // 
             this.lblWeight.AutoSize = true;
-            this.lblWeight.Location = new System.Drawing.Point(68, 137);
+            this.lblWeight.Location = new System.Drawing.Point(156, 201);
+            this.lblWeight.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblWeight.Name = "lblWeight";
-            this.lblWeight.Size = new System.Drawing.Size(59, 20);
+            this.lblWeight.Size = new System.Drawing.Size(87, 30);
             this.lblWeight.TabIndex = 0;
             this.lblWeight.Text = "Weigth:";
             // 
-            // lblCaloriesTakenToday2
+            // lblUserCaloriesTakenToday
             // 
-            this.lblCaloriesTakenToday2.AutoSize = true;
-            this.lblCaloriesTakenToday2.Location = new System.Drawing.Point(203, 280);
-            this.lblCaloriesTakenToday2.Name = "lblCaloriesTakenToday2";
-            this.lblCaloriesTakenToday2.Size = new System.Drawing.Size(106, 20);
-            this.lblCaloriesTakenToday2.TabIndex = 0;
-            this.lblCaloriesTakenToday2.Text = "Calories Intake";
+            this.lblUserCaloriesTakenToday.AutoSize = true;
+            this.lblUserCaloriesTakenToday.Location = new System.Drawing.Point(238, 348);
+            this.lblUserCaloriesTakenToday.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblUserCaloriesTakenToday.Name = "lblUserCaloriesTakenToday";
+            this.lblUserCaloriesTakenToday.Size = new System.Drawing.Size(155, 30);
+            this.lblUserCaloriesTakenToday.TabIndex = 0;
+            this.lblUserCaloriesTakenToday.Text = "Calories Intake";
             // 
             // lblSurname
             // 
             this.lblSurname.AutoSize = true;
-            this.lblSurname.Location = new System.Drawing.Point(57, 69);
+            this.lblSurname.Location = new System.Drawing.Point(140, 103);
+            this.lblSurname.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSurname.Name = "lblSurname";
-            this.lblSurname.Size = new System.Drawing.Size(70, 20);
+            this.lblSurname.Size = new System.Drawing.Size(104, 30);
             this.lblSurname.TabIndex = 0;
             this.lblSurname.Text = "Surname:";
             // 
             // lblCaloriesTakenToday
             // 
             this.lblCaloriesTakenToday.AutoSize = true;
-            this.lblCaloriesTakenToday.Location = new System.Drawing.Point(6, 280);
+            this.lblCaloriesTakenToday.Location = new System.Drawing.Point(21, 348);
+            this.lblCaloriesTakenToday.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCaloriesTakenToday.Name = "lblCaloriesTakenToday";
-            this.lblCaloriesTakenToday.Size = new System.Drawing.Size(150, 20);
+            this.lblCaloriesTakenToday.Size = new System.Drawing.Size(221, 30);
             this.lblCaloriesTakenToday.TabIndex = 0;
             this.lblCaloriesTakenToday.Text = "Calories Taken Today:";
             // 
-            // lblHeight
+            // lblLength
             // 
-            this.lblHeight.AutoSize = true;
-            this.lblHeight.Location = new System.Drawing.Point(70, 104);
-            this.lblHeight.Name = "lblHeight";
-            this.lblHeight.Size = new System.Drawing.Size(57, 20);
-            this.lblHeight.TabIndex = 0;
-            this.lblHeight.Text = "Height:";
-            this.lblHeight.Click += new System.EventHandler(this.lblHeight_Click);
+            this.lblLength.AutoSize = true;
+            this.lblLength.Location = new System.Drawing.Point(159, 152);
+            this.lblLength.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblLength.Name = "lblLength";
+            this.lblLength.Size = new System.Drawing.Size(84, 30);
+            this.lblLength.TabIndex = 0;
+            this.lblLength.Text = "Length:";
             // 
-            // lblCaloriesNeeded2
+            // lblUserCaloriesNeeded
             // 
-            this.lblCaloriesNeeded2.AutoSize = true;
-            this.lblCaloriesNeeded2.Location = new System.Drawing.Point(203, 250);
-            this.lblCaloriesNeeded2.Name = "lblCaloriesNeeded2";
-            this.lblCaloriesNeeded2.Size = new System.Drawing.Size(113, 20);
-            this.lblCaloriesNeeded2.TabIndex = 0;
-            this.lblCaloriesNeeded2.Text = "Calories to Take";
+            this.lblUserCaloriesNeeded.AutoSize = true;
+            this.lblUserCaloriesNeeded.Location = new System.Drawing.Point(238, 299);
+            this.lblUserCaloriesNeeded.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblUserCaloriesNeeded.Name = "lblUserCaloriesNeeded";
+            this.lblUserCaloriesNeeded.Size = new System.Drawing.Size(166, 30);
+            this.lblUserCaloriesNeeded.TabIndex = 0;
+            this.lblUserCaloriesNeeded.Text = "Calories to Take";
             // 
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(75, 36);
+            this.lblName.Location = new System.Drawing.Point(166, 54);
+            this.lblName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(52, 20);
+            this.lblName.Size = new System.Drawing.Size(76, 30);
             this.lblName.TabIndex = 0;
             this.lblName.Text = "Name:";
             // 
             // lblCaloriesNeeded
             // 
             this.lblCaloriesNeeded.AutoSize = true;
-            this.lblCaloriesNeeded.Location = new System.Drawing.Point(34, 250);
+            this.lblCaloriesNeeded.Location = new System.Drawing.Point(63, 299);
+            this.lblCaloriesNeeded.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCaloriesNeeded.Name = "lblCaloriesNeeded";
-            this.lblCaloriesNeeded.Size = new System.Drawing.Size(122, 20);
+            this.lblCaloriesNeeded.Size = new System.Drawing.Size(179, 30);
             this.lblCaloriesNeeded.TabIndex = 0;
             this.lblCaloriesNeeded.Text = "Calories Needed:";
             // 
-            // btnHeightandWeightUpdate
+            // frmMainPage
             // 
-            this.btnHeightandWeightUpdate.Location = new System.Drawing.Point(12, 541);
-            this.btnHeightandWeightUpdate.Name = "btnHeightandWeightUpdate";
-            this.btnHeightandWeightUpdate.Size = new System.Drawing.Size(216, 86);
-            this.btnHeightandWeightUpdate.TabIndex = 0;
-            this.btnHeightandWeightUpdate.Text = "HEIGHT AND WEIGHT UPDATE";
-            this.btnHeightandWeightUpdate.UseVisualStyleBackColor = true;
-            // 
-            // btnUpdateAccountInformation
-            // 
-            this.btnUpdateAccountInformation.Location = new System.Drawing.Point(234, 542);
-            this.btnUpdateAccountInformation.Name = "btnUpdateAccountInformation";
-            this.btnUpdateAccountInformation.Size = new System.Drawing.Size(235, 86);
-            this.btnUpdateAccountInformation.TabIndex = 0;
-            this.btnUpdateAccountInformation.Text = "UPDATE ACCOUNT INFORMATION";
-            this.btnUpdateAccountInformation.UseVisualStyleBackColor = true;
-            // 
-            // lblName2
-            // 
-            this.lblName2.AutoSize = true;
-            this.lblName2.Location = new System.Drawing.Point(206, 36);
-            this.lblName2.Name = "lblName2";
-            this.lblName2.Size = new System.Drawing.Size(50, 20);
-            this.lblName2.TabIndex = 1;
-            this.lblName2.Text = "label1";
-            // 
-            // lblSurname2
-            // 
-            this.lblSurname2.AutoSize = true;
-            this.lblSurname2.Location = new System.Drawing.Point(206, 69);
-            this.lblSurname2.Name = "lblSurname2";
-            this.lblSurname2.Size = new System.Drawing.Size(50, 20);
-            this.lblSurname2.TabIndex = 2;
-            this.lblSurname2.Text = "label3";
-            // 
-            // lblHeight2
-            // 
-            this.lblHeight2.AutoSize = true;
-            this.lblHeight2.Location = new System.Drawing.Point(206, 104);
-            this.lblHeight2.Name = "lblHeight2";
-            this.lblHeight2.Size = new System.Drawing.Size(50, 20);
-            this.lblHeight2.TabIndex = 3;
-            this.lblHeight2.Text = "label5";
-            // 
-            // lblWeight2
-            // 
-            this.lblWeight2.AutoSize = true;
-            this.lblWeight2.Location = new System.Drawing.Point(206, 137);
-            this.lblWeight2.Name = "lblWeight2";
-            this.lblWeight2.Size = new System.Drawing.Size(50, 20);
-            this.lblWeight2.TabIndex = 4;
-            this.lblWeight2.Text = "label6";
-            // 
-            // lblBodyMassIndex2
-            // 
-            this.lblBodyMassIndex2.AutoSize = true;
-            this.lblBodyMassIndex2.Location = new System.Drawing.Point(206, 174);
-            this.lblBodyMassIndex2.Name = "lblBodyMassIndex2";
-            this.lblBodyMassIndex2.Size = new System.Drawing.Size(50, 20);
-            this.lblBodyMassIndex2.TabIndex = 5;
-            this.lblBodyMassIndex2.Text = "label7";
-            // 
-            // Form1
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(175)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(490, 639);
+            this.ClientSize = new System.Drawing.Size(563, 628);
             this.Controls.Add(this.grpUserInformation);
-            this.Controls.Add(this.btnReports);
-            this.Controls.Add(this.btnUpdateAccountInformation);
-            this.Controls.Add(this.btnHeightandWeightUpdate);
-            this.Controls.Add(this.btnMeal);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Name = "frmMainPage";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Load += new System.EventHandler(this.frmMainPage_Load);
             this.grpUserInformation.ResumeLayout(false);
             this.grpUserInformation.PerformLayout();
             this.ResumeLayout(false);
@@ -263,19 +294,19 @@
         private GroupBox grpUserInformation;
         private Label lblBodyMassIndex;
         private Label lblWeight;
-        private Label lblCaloriesTakenToday2;
+        private Label lblUserCaloriesTakenToday;
         private Label lblSurname;
         private Label lblCaloriesTakenToday;
-        private Label lblHeight;
-        private Label lblCaloriesNeeded2;
+        private Label lblLength;
+        private Label lblUserCaloriesNeeded;
         private Label lblName;
         private Label lblCaloriesNeeded;
         private Button btnHeightandWeightUpdate;
         private Button btnUpdateAccountInformation;
-        private Label lblBodyMassIndex2;
-        private Label lblWeight2;
-        private Label lblHeight2;
-        private Label lblSurname2;
-        private Label lblName2;
+        private Label lblUserBodyMassIndex;
+        private Label lblUserWeight;
+        private Label lblUserLength;
+        private Label lblUserLastName;
+        private Label lblUserName;
     }
 }

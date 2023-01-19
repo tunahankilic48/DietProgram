@@ -92,6 +92,10 @@ namespace DataAccessLayer.Mapping
                 .HasColumnOrder(14)
                 .HasDefaultValueSql("getdate()"); // Data type will be date, which means 'dd/mm/yyyy hh:mm:ss' in the database. Default value set as now.
 
+            builder.Ignore(x => x.Name); // Not mapped in the database
+            builder.Ignore(x => x.BodyMassIndex);
+            builder.Ignore(x => x.DailyRequiredCalori);
+
         }
     }
 }

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer
 {
-    internal class DietContext : DbContext
+    public class DietContext : DbContext
     {
         public DbSet<AppUser> AppUsers { get; set; }
         public DbSet<Product> Products { get; set; }
@@ -25,7 +25,7 @@ namespace DataAccessLayer
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Server=.;Database=DietProgramDb;Encrypt=false;Trusted_Connection=True;"); // Change connection string !!!
+                optionsBuilder.UseSqlServer("Server=DESKTOP-A10URF2\\SQLEXPRESS;Database=DietProgramDb;Encrypt=false;Trusted_Connection=True;"); // Change connection string !!!
             }
         }
 
