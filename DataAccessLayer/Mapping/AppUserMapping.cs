@@ -38,31 +38,21 @@ namespace DataAccessLayer.Mapping
                 .HasColumnType("nvarchar")
                 .HasColumnOrder(4); // Last Name is Required, max length can be 30 characters and data type will be nvarchar in the database
 
-            builder.Property(x => x.Length)
-                .IsRequired()
-                .HasColumnType("smallint")
-                .HasColumnOrder(5); // Data type will be smallint in the database 
-
-            builder.Property(x => x.Weigth)
-                .IsRequired()
-                .HasColumnType("decimal(4,1)")
-                .HasColumnOrder(6); // Data type will be decimal(4,1), which means '000,0' in the database
-
             builder.Property(x => x.BirtDate)
                 .IsRequired()
                 .HasColumnType("date")
-                .HasColumnOrder(7); // Data type will be date, which means 'dd/mm/yyyy' in the database
+                .HasColumnOrder(5); // Data type will be date, which means 'dd/mm/yyyy' in the database
 
             builder.Property(x => x.CreatedDate)
                 .IsRequired()
                 .HasColumnType("smalldatetime")
-                .HasColumnOrder(8); // Data type will be date, which means 'dd/mm/yyyy hh:mm:ss' in the database
+                .HasColumnOrder(6); // Data type will be date, which means 'dd/mm/yyyy hh:mm:ss' in the database
 
             builder.Property(x => x.Email)
                 .IsRequired()
                 .HasMaxLength(100)
                 .HasColumnType("nvarchar")
-                .HasColumnOrder(9); // Email is Required, max length can be 100 characters and data type will be nvarchar in the database
+                .HasColumnOrder(7); // Email is Required, max length can be 100 characters and data type will be nvarchar in the database
             builder.HasIndex(x => x.Email)
                 .IsUnique(); // Email must be unique which means an email can be used for an account
 
@@ -70,33 +60,30 @@ namespace DataAccessLayer.Mapping
                 .IsRequired()
                 .HasMaxLength(20)
                 .HasColumnType("nvarchar")
-                .HasColumnOrder(10); // Password is Required, max length can be 100 characters and data type will be nvarchar in the database
+                .HasColumnOrder(8); // Password is Required, max length can be 100 characters and data type will be nvarchar in the database
 
             builder.Property(x => x.IsMale)
                 .IsRequired()
                 .HasColumnType("bit")
-                .HasColumnOrder(11);
+                .HasColumnOrder(9);
 
             builder.Property(x => x.AddressId)
                 .IsRequired()
-                .HasColumnOrder(12);
+                .HasColumnOrder(10);
 
             builder.Property(x => x.IsActive)
                 .IsRequired()
                 .HasColumnType("bit")
-                .HasColumnOrder(13); // IsActive will be used for email validation. It is required and data type will be bit in the database
+                .HasColumnOrder(11); // IsActive will be used for email validation. It is required and data type will be bit in the database
 
             builder.Property(x => x.ModifiedDate)
                 .IsRequired()
                 .HasColumnType("smalldatetime")
-                .HasColumnOrder(14)
+                .HasColumnOrder(12)
                 .HasDefaultValueSql("getdate()"); // Data type will be date, which means 'dd/mm/yyyy hh:mm:ss' in the database. Default value set as now.
 
-
-
             builder.Ignore(x => x.Name); // Not mapped in the database
-            builder.Ignore(x => x.BodyMassIndex);
-            builder.Ignore(x => x.DailyRequiredCalori);
+
 
         }
     }

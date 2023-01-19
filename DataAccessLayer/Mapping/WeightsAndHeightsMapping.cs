@@ -19,28 +19,36 @@ namespace DataAccessLayer.Mapping
 
             builder.HasKey(x => x.Id); // Set as Primary Key
 
-            builder.Property(x => x.CreatedDate)
+            builder.Property(x => x.Id)
+                   .HasColumnOrder(1);
+            builder.Property(x => x.Height)
                    .IsRequired()
-                   .HasColumnType("smalldatetime")
-                   .HasColumnOrder(3); // Data type will be date, which means 'dd/mm/yyyy hh:mm:ss' in the database
+                   .HasColumnType("smallint")
+                   .HasColumnOrder(2); // Data type will be smallint in the database 
 
-            builder.Property(x => x.ModifiedDate)
+            builder.Property(x => x.Weight)
+                   .IsRequired()
+                   .HasColumnType("decimal(4,1)")
+                   .HasColumnOrder(3); // Data type will be decimal(4,1), which means '000,0' in the database
+
+            builder.Property(x => x.CreatedDate)
                    .IsRequired()
                    .HasColumnType("smalldatetime")
                    .HasColumnOrder(4); // Data type will be date, which means 'dd/mm/yyyy hh:mm:ss' in the database
 
-            builder.Property(x => x.Weight)
+            builder.Property(x => x.ModifiedDate)
                    .IsRequired()
-                   .HasColumnType("smallint")
-                   .HasColumnOrder(5);
-            builder.Property(x => x.Height)
-                   .IsRequired()
-                   .HasColumnType("smallint")
-                   .HasColumnOrder(6);
+                   .HasColumnType("smalldatetime")
+                   .HasColumnOrder(5); // Data type will be date, which means 'dd/mm/yyyy hh:mm:ss' in the database
 
-            builder.HasOne<AppUser>(x => x.AppUsers)
+
+
+            builder.HasOne<AppUser>(x => x.AppUser)
                    .WithMany(x => x.WeightsAndHeights)
                    .HasForeignKey(x => x.AppUserId);
+
+            builder.Ignore(x => x.BodyMassIndex);
+            builder.Ignore(x => x.DailyRequiredCalori);
         }
 
     }

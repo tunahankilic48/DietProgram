@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccessLayer.Migrations
 {
     [DbContext(typeof(DietContext))]
-    [Migration("20230119122111_first")]
+    [Migration("20230119160959_first")]
     partial class first
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -74,23 +74,23 @@ namespace DataAccessLayer.Migrations
                     b.Property<int?>("AddressId")
                         .IsRequired()
                         .HasColumnType("int")
-                        .HasColumnOrder(12);
+                        .HasColumnOrder(10);
 
                     b.Property<DateTime?>("BirtDate")
                         .IsRequired()
                         .HasColumnType("date")
-                        .HasColumnOrder(7);
+                        .HasColumnOrder(5);
 
                     b.Property<DateTime?>("CreatedDate")
                         .IsRequired()
                         .HasColumnType("smalldatetime")
-                        .HasColumnOrder(8);
+                        .HasColumnOrder(6);
 
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)")
-                        .HasColumnOrder(9);
+                        .HasColumnOrder(7);
 
                     b.Property<string>("FirstName")
                         .IsRequired()
@@ -101,22 +101,18 @@ namespace DataAccessLayer.Migrations
                     b.Property<bool?>("IsActive")
                         .IsRequired()
                         .HasColumnType("bit")
-                        .HasColumnOrder(13);
+                        .HasColumnOrder(11);
 
                     b.Property<bool?>("IsMale")
                         .IsRequired()
                         .HasColumnType("bit")
-                        .HasColumnOrder(11);
+                        .HasColumnOrder(9);
 
                     b.Property<string>("LastName")
                         .IsRequired()
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)")
                         .HasColumnOrder(4);
-
-                    b.Property<short>("Length")
-                        .HasColumnType("smallint")
-                        .HasColumnOrder(5);
 
                     b.Property<string>("MiddleName")
                         .HasMaxLength(20)
@@ -127,19 +123,14 @@ namespace DataAccessLayer.Migrations
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("smalldatetime")
-                        .HasColumnOrder(14)
+                        .HasColumnOrder(12)
                         .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("Password")
                         .IsRequired()
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)")
-                        .HasColumnOrder(10);
-
-                    b.Property<decimal?>("Weigth")
-                        .IsRequired()
-                        .HasColumnType("decimal(4,1)")
-                        .HasColumnOrder(6);
+                        .HasColumnOrder(8);
 
                     b.HasKey("Id");
 
@@ -388,6 +379,43 @@ namespace DataAccessLayer.Migrations
                     b.ToTable("ProductCategory", (string)null);
                 });
 
+            modelBuilder.Entity("EntityLayer.WeightsAndHeights", b =>
+                {
+                    b.Property<int?>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnOrder(1);
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("Id"), 1L, 1);
+
+                    b.Property<int>("AppUserId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("CreatedDate")
+                        .IsRequired()
+                        .HasColumnType("smalldatetime")
+                        .HasColumnOrder(4);
+
+                    b.Property<short>("Height")
+                        .HasColumnType("smallint")
+                        .HasColumnOrder(2);
+
+                    b.Property<DateTime?>("ModifiedDate")
+                        .IsRequired()
+                        .HasColumnType("smalldatetime")
+                        .HasColumnOrder(5);
+
+                    b.Property<decimal>("Weight")
+                        .HasColumnType("decimal(4,1)")
+                        .HasColumnOrder(3);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AppUserId");
+
+                    b.ToTable("UsersHeightsAndWeights", (string)null);
+                });
+
             modelBuilder.Entity("EntityLayer.Address", b =>
                 {
                     b.HasOne("EntityLayer.Country", "Country")
@@ -470,6 +498,17 @@ namespace DataAccessLayer.Migrations
                     b.Navigation("ProductCategory");
                 });
 
+            modelBuilder.Entity("EntityLayer.WeightsAndHeights", b =>
+                {
+                    b.HasOne("EntityLayer.AppUser", "AppUser")
+                        .WithMany("WeightsAndHeights")
+                        .HasForeignKey("AppUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("AppUser");
+                });
+
             modelBuilder.Entity("EntityLayer.Address", b =>
                 {
                     b.Navigation("AppUser");
@@ -478,6 +517,8 @@ namespace DataAccessLayer.Migrations
             modelBuilder.Entity("EntityLayer.AppUser", b =>
                 {
                     b.Navigation("Meals");
+
+                    b.Navigation("WeightsAndHeights");
                 });
 
             modelBuilder.Entity("EntityLayer.Country", b =>
