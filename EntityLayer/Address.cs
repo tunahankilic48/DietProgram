@@ -9,12 +9,12 @@ namespace EntityLayer
     public class Address: BaseClass
     {
         
-        public int? CountryId { get; set; }
+        public int? CityId { get; set; }
         public int? UserId { get; set; }
 
         // Navigation Properties
 
-        public Country? Country { get; set; }
+        public City? City { get; set; }
         public AppUser? AppUser { get; set; }
     }
 }

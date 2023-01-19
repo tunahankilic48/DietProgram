@@ -11,12 +11,10 @@ namespace EntityLayer
         public Country()
         {
             Cities= new List<City>();
-            Addresses= new List<Address>();
         }
         public string? Name { get; set; }
 
         // Navigation Properties
         public List<City>? Cities{ get; set; }
-        public List<Address>? Addresses { get; set; }
     }
 }

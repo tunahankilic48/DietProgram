@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccessLayer.Migrations
 {
     [DbContext(typeof(DietContext))]
-    [Migration("20230119160959_first")]
+    [Migration("20230119210158_first")]
     partial class first
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -33,7 +33,7 @@ namespace DataAccessLayer.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("Id"), 1L, 1);
 
-                    b.Property<int?>("CountryId")
+                    b.Property<int?>("CityId")
                         .IsRequired()
                         .HasColumnType("int")
                         .HasColumnOrder(2);
@@ -57,7 +57,7 @@ namespace DataAccessLayer.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CountryId");
+                    b.HasIndex("CityId");
 
                     b.ToTable("Addresses", (string)null);
                 });
@@ -72,9 +72,8 @@ namespace DataAccessLayer.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("Id"), 1L, 1);
 
                     b.Property<int?>("AddressId")
-                        .IsRequired()
                         .HasColumnType("int")
-                        .HasColumnOrder(10);
+                        .HasColumnOrder(9);
 
                     b.Property<DateTime?>("BirtDate")
                         .IsRequired()
@@ -84,13 +83,13 @@ namespace DataAccessLayer.Migrations
                     b.Property<DateTime?>("CreatedDate")
                         .IsRequired()
                         .HasColumnType("smalldatetime")
-                        .HasColumnOrder(6);
+                        .HasColumnOrder(11);
 
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)")
-                        .HasColumnOrder(7);
+                        .HasColumnOrder(6);
 
                     b.Property<string>("FirstName")
                         .IsRequired()
@@ -101,12 +100,12 @@ namespace DataAccessLayer.Migrations
                     b.Property<bool?>("IsActive")
                         .IsRequired()
                         .HasColumnType("bit")
-                        .HasColumnOrder(11);
+                        .HasColumnOrder(10);
 
                     b.Property<bool?>("IsMale")
                         .IsRequired()
                         .HasColumnType("bit")
-                        .HasColumnOrder(9);
+                        .HasColumnOrder(8);
 
                     b.Property<string>("LastName")
                         .IsRequired()
@@ -130,12 +129,13 @@ namespace DataAccessLayer.Migrations
                         .IsRequired()
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)")
-                        .HasColumnOrder(8);
+                        .HasColumnOrder(7);
 
                     b.HasKey("Id");
 
                     b.HasIndex("AddressId")
-                        .IsUnique();
+                        .IsUnique()
+                        .HasFilter("[AddressId] IS NOT NULL");
 
                     b.HasIndex("Email")
                         .IsUnique();
@@ -388,7 +388,7 @@ namespace DataAccessLayer.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("Id"), 1L, 1);
 
-                    b.Property<int>("AppUserId")
+                    b.Property<int?>("AppUserId")
                         .HasColumnType("int");
 
                     b.Property<DateTime?>("CreatedDate")
@@ -405,7 +405,8 @@ namespace DataAccessLayer.Migrations
                         .HasColumnType("smalldatetime")
                         .HasColumnOrder(5);
 
-                    b.Property<decimal>("Weight")
+                    b.Property<decimal?>("Weight")
+                        .IsRequired()
                         .HasColumnType("decimal(4,1)")
                         .HasColumnOrder(3);
 
@@ -418,22 +419,20 @@ namespace DataAccessLayer.Migrations
 
             modelBuilder.Entity("EntityLayer.Address", b =>
                 {
-                    b.HasOne("EntityLayer.Country", "Country")
+                    b.HasOne("EntityLayer.City", "City")
                         .WithMany("Addresses")
-                        .HasForeignKey("CountryId")
+                        .HasForeignKey("CityId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Country");
+                    b.Navigation("City");
                 });
 
             modelBuilder.Entity("EntityLayer.AppUser", b =>
                 {
                     b.HasOne("EntityLayer.Address", "Address")
                         .WithOne("AppUser")
-                        .HasForeignKey("EntityLayer.AppUser", "AddressId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("EntityLayer.AppUser", "AddressId");
 
                     b.Navigation("Address");
                 });
@@ -502,9 +501,7 @@ namespace DataAccessLayer.Migrations
                 {
                     b.HasOne("EntityLayer.AppUser", "AppUser")
                         .WithMany("WeightsAndHeights")
-                        .HasForeignKey("AppUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("AppUserId");
 
                     b.Navigation("AppUser");
                 });
@@ -521,10 +518,13 @@ namespace DataAccessLayer.Migrations
                     b.Navigation("WeightsAndHeights");
                 });
 
-            modelBuilder.Entity("EntityLayer.Country", b =>
+            modelBuilder.Entity("EntityLayer.City", b =>
                 {
                     b.Navigation("Addresses");
+                });
 
+            modelBuilder.Entity("EntityLayer.Country", b =>
+                {
                     b.Navigation("Cities");
                 });
 
