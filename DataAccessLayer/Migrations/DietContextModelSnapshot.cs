@@ -49,7 +49,6 @@ namespace DataAccessLayer.Migrations
                         .HasDefaultValueSql("getdate()");
 
                     b.Property<int?>("UserId")
-                        .IsRequired()
                         .HasColumnType("int")
                         .HasColumnOrder(3);
 

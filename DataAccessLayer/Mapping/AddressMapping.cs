@@ -26,7 +26,6 @@ namespace DataAccessLayer.Mapping
                 .HasColumnOrder(2);
 
             builder.Property(x => x.UserId)
-                .IsRequired()
                 .HasColumnOrder(3);
 
             builder.Property(x => x.CreatedDate)
