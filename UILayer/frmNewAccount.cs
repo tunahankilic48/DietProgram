@@ -24,6 +24,15 @@ namespace UILayer
         private void frmNewAccount_Load(object sender, EventArgs e)
         {
             context = new DietContext();
+
+            cbbCity.ValueMember = "Id";
+            cbbCity.DisplayMember = "Name";
+            cbbCity.DataSource = context.Cities.ToList();
+
+            cbbCountry.ValueMember = "Id";
+            cbbCountry.DisplayMember = "Name";
+            cbbCountry.DataSource = context.Countries.ToList();
+
         }
 
         #region Buttons
@@ -31,58 +40,51 @@ namespace UILayer
 
         private void btnCreate_Click_1(object sender, EventArgs e)
         {
-            if (areRequiredDetailsFilled() && IsPasswordsSame())
+            AppUser newUser = new AppUser()
             {
-                AppUser newUser = new AppUser()
-                {
-                    FirstName = txtFirstName.Text,
-                    LastName = txtLastName.Text,
-                    BirtDate = dtpBirthDate.Value,
-                    Email = txtEmail.Text,
-                    Password = txtPassword.Text,
-                    IsMale = rdbMale.Checked,
-                    ModifiedDate = DateTime.Now,
-                    CreatedDate = DateTime.Now,
-                };
+                FirstName = txtFirstName.Text,
+                LastName = txtLastName.Text,
+                BirtDate = dtpBirthDate.Value,
+                Email = txtEmail.Text,
+                Password = txtPassword.Text,
+                IsMale = rdbMale.Checked,
+                ModifiedDate = DateTime.Now,
+                CreatedDate = DateTime.Now,
+                IsActive = true
+            };
+
+            Address address = new Address();
+
+            address.CityId = (int)cbbCity.SelectedValue;
+            address.ModifiedDate = DateTime.Now;
+            address.CreatedDate = DateTime.Now;
+
+            WeightsAndHeights weightsAndHeights = new WeightsAndHeights();
+
+            weightsAndHeights.Weight = decimal.Parse(txtWeight.Text);
+            weightsAndHeights.Height = int.Parse(txtHeight.Text);
+            weightsAndHeights.ModifiedDate = DateTime.Now;
+            weightsAndHeights.CreatedDate = DateTime.Now;
 
 
-                context.AppUsers.Add(newUser);
-                context.SaveChanges();
+            context.AppUsers.Add(newUser);
+            context.Addresses.Add(address);
+            context.UsersWeightsAndHeights.Add(weightsAndHeights);
+            context.SaveChanges();
 
-                Address adres= new Address
-                {
+            MessageBox.Show("Aşama 1", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    AppUser = newUser,
-                    UserId = newUser.Id
+            newUser.AddressId = address.Id;
+            address.UserId= newUser.Id;
+            weightsAndHeights.AppUserId = newUser.Id;
 
-                };
-
-                
-
-                newUser.WeightsAndHeights.Add(new WeightsAndHeights
-                {
-                    Height = Convert.ToInt32(txtHeight.Text),
-                    Weight = Convert.ToDecimal(txtWeight.Text),
-                    AppUserId = newUser.Id,
-                    ModifiedDate= DateTime.Now,
-                    CreatedDate = DateTime.Now,
+            context.SaveChanges();
 
 
-                });
+            MessageBox.Show("Aşama2", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            // newUser.Address.Country = cbbCountry -- Bir adressin 1 citysi ve bir ulkesi olur seklinde duzeltilecek
 
 
-
-                // newUser.Address.Country = cbbCountry -- Bir adressin 1 citysi ve bir ulkesi olur seklinde duzeltilecek
-
-
-
-
-
-                newUser.BirtDate = dtpBirthDate.Value;
-                context.AppUsers.Add(newUser);
-                context.SaveChanges();
-                MessageBox.Show("New User was created.");
-            }
         }
         #endregion
 

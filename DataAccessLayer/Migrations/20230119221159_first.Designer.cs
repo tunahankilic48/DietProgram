@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccessLayer.Migrations
 {
     [DbContext(typeof(DietContext))]
-    [Migration("20230119210158_first")]
+    [Migration("20230119221159_first")]
     partial class first
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -51,7 +51,6 @@ namespace DataAccessLayer.Migrations
                         .HasDefaultValueSql("getdate()");
 
                     b.Property<int?>("UserId")
-                        .IsRequired()
                         .HasColumnType("int")
                         .HasColumnOrder(3);
 
