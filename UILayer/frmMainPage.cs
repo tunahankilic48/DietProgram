@@ -23,12 +23,12 @@ namespace UILayer
 
         private void frmMainPage_Load(object sender, EventArgs e)
         {
-            lblUserName.Text = _user.Name;
-            lblUserLastName.Text = _user.LastName;
-            lblUserLength.Text = _user.Length.ToString() + " cm";
-            lblUserWeight.Text = _user.Weigth.ToString() + " kg";
-            lblUserBodyMassIndex.Text = _user.BodyMassIndex.ToString();
-            lblUserCaloriesNeeded.Text = _user.DailyRequiredCalori.ToString() + " Calorie";
+            //lblUserName.Text = _user.Name;
+            //lblUserLastName.Text = _user.LastName;
+            //lblUserLength.Text = _user.Length.ToString() + " cm";
+            //lblUserWeight.Text = _user.Weigth.ToString() + " kg";
+            //lblUserBodyMassIndex.Text = _user.BodyMassIndex.ToString();
+            //lblUserCaloriesNeeded.Text = _user.DailyRequiredCalori.ToString() + " Calorie";
 
         }
 

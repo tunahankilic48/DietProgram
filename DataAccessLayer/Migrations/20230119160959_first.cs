@@ -131,8 +131,6 @@ namespace DataAccessLayer.Migrations
                     FirstName = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
                     MiddleName = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: true),
                     LastName = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
-                    Length = table.Column<short>(type: "smallint", nullable: false),
-                    Weigth = table.Column<decimal>(type: "decimal(4,1)", nullable: false),
                     BirtDate = table.Column<DateTime>(type: "date", nullable: false),
                     CreatedDate = table.Column<DateTime>(type: "smalldatetime", nullable: false),
                     Email = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
@@ -176,6 +174,29 @@ namespace DataAccessLayer.Migrations
                     table.ForeignKey(
                         name: "FK_Meal_Users_UserId",
                         column: x => x.UserId,
+                        principalTable: "Users",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "UsersHeightsAndWeights",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Height = table.Column<short>(type: "smallint", nullable: false),
+                    Weight = table.Column<decimal>(type: "decimal(4,1)", nullable: false),
+                    CreatedDate = table.Column<DateTime>(type: "smalldatetime", nullable: false),
+                    ModifiedDate = table.Column<DateTime>(type: "smalldatetime", nullable: false),
+                    AppUserId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_UsersHeightsAndWeights", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_UsersHeightsAndWeights_Users_AppUserId",
+                        column: x => x.AppUserId,
                         principalTable: "Users",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -248,6 +269,11 @@ namespace DataAccessLayer.Migrations
                 table: "Users",
                 column: "Email",
                 unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_UsersHeightsAndWeights_AppUserId",
+                table: "UsersHeightsAndWeights",
+                column: "AppUserId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -257,6 +283,9 @@ namespace DataAccessLayer.Migrations
 
             migrationBuilder.DropTable(
                 name: "MealContents");
+
+            migrationBuilder.DropTable(
+                name: "UsersHeightsAndWeights");
 
             migrationBuilder.DropTable(
                 name: "Meal");
