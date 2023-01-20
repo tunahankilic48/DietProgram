@@ -21,12 +21,13 @@ namespace DataAccessLayer
         public DbSet<ProductCategory> ProductCategories { get; set; }
 
         public DbSet<WeightsAndHeights> UsersWeightsAndHeights { get; set; }
+        public DbSet<MealContent> MealContents { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Server=.;Database=DietProgramDb;Encrypt=false;Trusted_Connection=True;"); // Change connection string !!!
+                optionsBuilder.UseSqlServer("Server=DESKTOP-A10URF2\\SQLEXPRESS;Database=DietProgramDb;Encrypt=false;Trusted_Connection=True;"); // Change connection string !!!
             }
         }
 

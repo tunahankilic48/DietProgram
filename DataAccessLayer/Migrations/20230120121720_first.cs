@@ -139,7 +139,7 @@ namespace DataAccessLayer.Migrations
                     IsActive = table.Column<bool>(type: "bit", nullable: false),
                     CreatedDate = table.Column<DateTime>(type: "smalldatetime", nullable: false),
                     ModifiedDate = table.Column<DateTime>(type: "smalldatetime", nullable: false, defaultValueSql: "getdate()"),
-                    ProfilePhoto = table.Column<byte[]>(type: "Image", nullable: false)
+                    ProfilePhoto = table.Column<byte[]>(type: "varbinary", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -208,7 +208,8 @@ namespace DataAccessLayer.Migrations
                     MealId = table.Column<int>(type: "int", nullable: false),
                     ProductId = table.Column<int>(type: "int", nullable: false),
                     Quantity = table.Column<short>(type: "smallint", nullable: false),
-                    TotalCalorie = table.Column<short>(type: "smallint", nullable: false)
+                    CreatedDate = table.Column<DateTime>(type: "smalldatetime", nullable: false),
+                    ModifiedDate = table.Column<DateTime>(type: "smalldatetime", nullable: false)
                 },
                 constraints: table =>
                 {

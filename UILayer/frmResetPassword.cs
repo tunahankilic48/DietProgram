@@ -14,6 +14,7 @@ namespace UILayer
 {
     public partial class frmResetPassword : Form
     {
+        // to do: Password validation eklenecek
         private AppUser _user;
         private string _verificationCode;
         private frmForgotPassword _frmForgetPassword;

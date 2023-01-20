@@ -17,10 +17,10 @@ namespace UILayer
         }
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            AppUser? user = context.AppUsers.Where(x => x.Email == txtEmail.Text).ToList().FirstOrDefault();
+            AppUser? user = context.AppUsers.Where(x => x.Email == txtEmail.Text).ToList().FirstOrDefault(); // Email check from database
             if (user != null)
             {
-                if (user.Password == txtPassword.Text)
+                if (user.Password == txtPassword.Text) // Password check
                 {
                     frmMainPage frm = new frmMainPage(user);
                     frm.Show();
@@ -47,7 +47,7 @@ namespace UILayer
         }
         private void lblCreateANewAccount_Click(object sender, EventArgs e)
         {
-            frmNewAccount frm = new frmNewAccount();
+            frmNewAccount frm = new frmNewAccount(); // to do: içerisine bu form verilecek sonrasında
             frm.Show();
             this.Hide();
         }
