@@ -2,22 +2,7 @@
 using EntityLayer;
 using Microsoft.Data.SqlClient;
 using Microsoft.VisualBasic.ApplicationServices;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using Windows.Storage.Streams;
-using Windows.Storage;
-using Windows.UI.Xaml.Media.Imaging;
-
-
-
+using System.Text.RegularExpressions;
 
 namespace UILayer
 {
@@ -28,8 +13,15 @@ namespace UILayer
         {
             InitializeComponent();
         }
+        string password = "";
+        string letters = "QWERTYUIOPĞÜASDFGHJKLŞİZXCVBNMÖÇqwertyuıopğüasdfghjklşizxcvbnmöç";
+        string numbers = "1234567890";
+        string specialCharacters = "!'^+%&/()=?_>£#$½{[]}<.:@€₺i¨~æß´`;,";
 
-        private void frmNewAccount_Load(object sender, EventArgs e )
+        bool LetterTrue = false;
+        bool NumberTrue = false;
+        bool SpecialCharacterTrue = false;
+        private void frmNewAccount_Load(object sender, EventArgs e)
         {
             context = new DietContext();
 
@@ -41,6 +33,7 @@ namespace UILayer
             cbbCountry.DisplayMember = "Name";
             cbbCountry.DataSource = context.Countries.ToList();
 
+            lblPasword.Visible = false;
         }
 
         #region Buttons
@@ -55,9 +48,7 @@ namespace UILayer
             {
                 // display image in picture box  
                 pictureBox1.Load(open.FileName);
-
             }
-
         }
 
         private async void btnCreate_Click_1(object sender, EventArgs e)
@@ -105,7 +96,88 @@ namespace UILayer
         #endregion
 
         #region Methods
+        public void PasswordControl()
+        {
+            password = txtPassword.Text;
+            if (password.Length < 6)
+            {
+                lblPasword.Text = "Weak Password";
+            }
+            else
+            {
+                foreach (char item in password)
+                {
+                    if (letters.IndexOf(item) != -1)
+                    {
+                        LetterTrue = true;
+                    }
+                    if (numbers.IndexOf(item) != -1)
+                    {
+                        NumberTrue = true;
+                    }
+                    if (specialCharacters.IndexOf(item) != -1)
+                    {
+                        SpecialCharacterTrue = true;
+                    }
+                }
+                if (LetterTrue == true && NumberTrue == true && SpecialCharacterTrue == true)
+                {
+                    lblPasword.Text = "Strong Password";
+                }
+                else if (LetterTrue == true && NumberTrue == true || LetterTrue == true && SpecialCharacterTrue == true || NumberTrue == true && SpecialCharacterTrue == true)
+                {
+                    lblPasword.Text = "Medium Password";
+                }
+                else
+                {
+                    lblPasword.Text = "Weak Password";
+                }
+            }
+        }
+
+        public static bool IsValidEmail(string email)
+        {
+
+            Regex emailRegex = new Regex(@"^([\w.-]+)@([\w-]+)((.(\w){2,3})+)$", RegexOptions.IgnoreCase);
+            return emailRegex.IsMatch(email);
+
+        }
         #endregion
 
+        private void txtEmail_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPassword_TextChanged(object sender, EventArgs e)
+        {
+            lblPasword.Visible = true;
+            PasswordControl();
+        }
+
+        private void txtPassword_Leave(object sender, EventArgs e)
+        {
+            lblPasword.Visible = false;
+        }
+
+        private void txtEmail_Leave(object sender, EventArgs e)
+        {
+            if (IsValidEmail(txtEmail.Text) == false)
+            {
+                DialogResult result = MessageBox.Show("Are you sure you entered the e-mail address correctly?", "E-Mail Check", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == DialogResult.Abort)
+                {
+                    this.Close();
+                }
+                else if (result == DialogResult.Retry)
+                {
+
+                }
+                else
+                {
+
+                }
+            }
+        }
     }
 }
