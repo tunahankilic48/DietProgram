@@ -14,6 +14,8 @@ namespace UILayer
 {
     public partial class frmMainPage : Form
     {
+        // to do: Reports kısmı eklenecek
+        // to do: update kısmı eklenecek
         private AppUser _user;
         DietContext context;
         WeightsAndHeights weightsAndHeights;
@@ -44,7 +46,7 @@ namespace UILayer
         }
         private void btnMeal_Click(object sender, EventArgs e)
         {
-            frmMeal frm = new frmMeal();
+            frmMeal frm = new frmMeal(this, _user);
             frm.Show();
             this.Hide();
         }

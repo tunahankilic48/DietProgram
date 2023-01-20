@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccessLayer.Migrations
 {
     [DbContext(typeof(DietContext))]
-    [Migration("20230120080654_first")]
+    [Migration("20230120121720_first")]
     partial class first
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -132,7 +132,7 @@ namespace DataAccessLayer.Migrations
 
                     b.Property<byte[]>("ProfilePhoto")
                         .IsRequired()
-                        .HasColumnType("Image")
+                        .HasColumnType("varbinary")
                         .HasColumnOrder(13);
 
                     b.HasKey("Id");
@@ -296,13 +296,17 @@ namespace DataAccessLayer.Migrations
                         .HasColumnType("int")
                         .HasColumnOrder(2);
 
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("smalldatetime")
+                        .HasColumnOrder(4);
+
+                    b.Property<DateTime>("ModifiedDate")
+                        .HasColumnType("smalldatetime")
+                        .HasColumnOrder(5);
+
                     b.Property<short>("Quantity")
                         .HasColumnType("smallint")
                         .HasColumnOrder(3);
-
-                    b.Property<short>("TotalCalorie")
-                        .HasColumnType("smallint")
-                        .HasColumnOrder(4);
 
                     b.HasKey("MealId", "ProductId");
 

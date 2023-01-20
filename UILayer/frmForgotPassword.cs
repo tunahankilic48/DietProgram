@@ -16,15 +16,15 @@ namespace UILayer
 {
     public partial class frmForgotPassword : Form
     {
+        DietContext context;
+        Random rnd;
+        private frmLoginPanel _frmLogin;
+
         public frmForgotPassword(frmLoginPanel frmLogin)
         {
             InitializeComponent();
             _frmLogin = frmLogin;
         }
-
-        DietContext context;
-        Random rnd;
-        private frmLoginPanel _frmLogin;
 
         private void frmForgotPassword_Load(object sender, EventArgs e)
         {
@@ -33,7 +33,7 @@ namespace UILayer
         }
         private void btnSendPassword_Click(object sender, EventArgs e)
         {
-            AppUser? user = context.AppUsers.Where(x => x.Email == txtEmail.Text).FirstOrDefault();
+            AppUser? user = context.AppUsers.Where(x => x.Email == txtEmail.Text).FirstOrDefault(); // Checked if there is an Email in the system
 
             if (user != null)
             {
@@ -50,6 +50,8 @@ namespace UILayer
                 userMail = txtEmail.Text;
                 message.To.Add(userMail);
                 message.Body = messageBody;
+
+                // Auto Mail for verificaiton code
 
                 SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
                 smtpClient.UseDefaultCredentials = false;

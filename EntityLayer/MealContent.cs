@@ -8,10 +8,17 @@ namespace EntityLayer
 {
     public class MealContent
     {
+
         public int? MealId { get; set; }
         public int? ProductId { get; set; }
         public int? Quantity { get; set; }
-        public int? TotalCalorie { get; set; }
+        public int? TotalCalorie { get
+            {
+                return Product.Calorie * Quantity;
+            }
+        }
+        public DateTime CreatedDate { get; set; }
+        public DateTime ModifiedDate { get; set; }
 
         // Navigation Properties
         public Meal? Meal { get; set; }
