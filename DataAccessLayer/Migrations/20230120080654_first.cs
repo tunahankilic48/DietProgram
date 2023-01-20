@@ -138,7 +138,8 @@ namespace DataAccessLayer.Migrations
                     AddressId = table.Column<int>(type: "int", nullable: true),
                     IsActive = table.Column<bool>(type: "bit", nullable: false),
                     CreatedDate = table.Column<DateTime>(type: "smalldatetime", nullable: false),
-                    ModifiedDate = table.Column<DateTime>(type: "smalldatetime", nullable: false, defaultValueSql: "getdate()")
+                    ModifiedDate = table.Column<DateTime>(type: "smalldatetime", nullable: false, defaultValueSql: "getdate()"),
+                    ProfilePhoto = table.Column<byte[]>(type: "Image", nullable: false)
                 },
                 constraints: table =>
                 {

@@ -81,6 +81,10 @@ namespace DataAccessLayer.Mapping
                 .HasColumnOrder(12)
                 .HasDefaultValueSql("getdate()"); // Data type will be date, which means 'dd/mm/yyyy hh:mm:ss' in the database. Default value set as now.
 
+            builder.Property(x => x.ProfilePhoto)
+                   .HasColumnType("varbinary")
+                   .HasColumnOrder(13);
+
             builder.Ignore(x => x.Name); // Not mapped in the database
 
 

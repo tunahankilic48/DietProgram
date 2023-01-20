@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Uno.UI" Version="4.6.41" />
+  </ItemGroup>
+
 </Project>

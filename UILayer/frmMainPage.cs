@@ -35,6 +35,12 @@ namespace UILayer
             lblUserBodyMassIndex.Text = weightsAndHeights.BodyMassIndex.ToString();
             lblUserCaloriesNeeded.Text = weightsAndHeights.DailyRequiredCalori.ToString() + " Calorie";
 
+            MemoryStream ms = new MemoryStream(_user.ProfilePhoto, 0, _user.ProfilePhoto.Length);
+            ms.Write(_user.ProfilePhoto, 0, _user.ProfilePhoto.Length);
+            pictureBox1.Image =  Image.FromStream(ms, true);//Exception occurs here
+
+            
+
         }
         private void btnMeal_Click(object sender, EventArgs e)
         {

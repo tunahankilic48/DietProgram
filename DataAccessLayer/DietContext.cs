@@ -26,7 +26,7 @@ namespace DataAccessLayer
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Server=DESKTOP-A10URF2\\SQLEXPRESS;Database=DietProgramDb;Encrypt=false;Trusted_Connection=True;"); // Change connection string !!!
+                optionsBuilder.UseSqlServer("Server=.;Database=DietProgramDb;Encrypt=false;Trusted_Connection=True;"); // Change connection string !!!
             }
         }
 

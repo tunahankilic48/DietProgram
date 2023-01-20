@@ -47,7 +47,9 @@
             this.lblUserCaloriesNeeded = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.lblCaloriesNeeded = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.grpUserInformation.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnMeal
@@ -77,6 +79,7 @@
             // grpUserInformation
             // 
             this.grpUserInformation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(236)))), ((int)(((byte)(238)))));
+            this.grpUserInformation.Controls.Add(this.pictureBox1);
             this.grpUserInformation.Controls.Add(this.lblUserBodyMassIndex);
             this.grpUserInformation.Controls.Add(this.btnUpdateAccountInformation);
             this.grpUserInformation.Controls.Add(this.btnReports);
@@ -110,7 +113,7 @@
             this.lblUserBodyMassIndex.Location = new System.Drawing.Point(238, 250);
             this.lblUserBodyMassIndex.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUserBodyMassIndex.Name = "lblUserBodyMassIndex";
-            this.lblUserBodyMassIndex.Size = new System.Drawing.Size(71, 30);
+            this.lblUserBodyMassIndex.Size = new System.Drawing.Size(59, 25);
             this.lblUserBodyMassIndex.TabIndex = 5;
             this.lblUserBodyMassIndex.Text = "label7";
             // 
@@ -144,7 +147,7 @@
             this.lblUserWeight.Location = new System.Drawing.Point(238, 201);
             this.lblUserWeight.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUserWeight.Name = "lblUserWeight";
-            this.lblUserWeight.Size = new System.Drawing.Size(71, 30);
+            this.lblUserWeight.Size = new System.Drawing.Size(59, 25);
             this.lblUserWeight.TabIndex = 4;
             this.lblUserWeight.Text = "label6";
             // 
@@ -154,7 +157,7 @@
             this.lblUserHeight.Location = new System.Drawing.Point(238, 152);
             this.lblUserHeight.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUserHeight.Name = "lblUserHeight";
-            this.lblUserHeight.Size = new System.Drawing.Size(71, 30);
+            this.lblUserHeight.Size = new System.Drawing.Size(59, 25);
             this.lblUserHeight.TabIndex = 3;
             this.lblUserHeight.Text = "label5";
             // 
@@ -164,7 +167,7 @@
             this.lblUserLastName.Location = new System.Drawing.Point(238, 103);
             this.lblUserLastName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUserLastName.Name = "lblUserLastName";
-            this.lblUserLastName.Size = new System.Drawing.Size(71, 30);
+            this.lblUserLastName.Size = new System.Drawing.Size(59, 25);
             this.lblUserLastName.TabIndex = 2;
             this.lblUserLastName.Text = "label3";
             // 
@@ -174,7 +177,7 @@
             this.lblUserName.Location = new System.Drawing.Point(238, 54);
             this.lblUserName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUserName.Name = "lblUserName";
-            this.lblUserName.Size = new System.Drawing.Size(71, 30);
+            this.lblUserName.Size = new System.Drawing.Size(59, 25);
             this.lblUserName.TabIndex = 1;
             this.lblUserName.Text = "label1";
             // 
@@ -184,7 +187,7 @@
             this.lblBodyMassIndex.Location = new System.Drawing.Point(60, 250);
             this.lblBodyMassIndex.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblBodyMassIndex.Name = "lblBodyMassIndex";
-            this.lblBodyMassIndex.Size = new System.Drawing.Size(182, 30);
+            this.lblBodyMassIndex.Size = new System.Drawing.Size(151, 25);
             this.lblBodyMassIndex.TabIndex = 0;
             this.lblBodyMassIndex.Text = "Body Mass Index:";
             // 
@@ -194,7 +197,7 @@
             this.lblWeight.Location = new System.Drawing.Point(156, 201);
             this.lblWeight.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblWeight.Name = "lblWeight";
-            this.lblWeight.Size = new System.Drawing.Size(87, 30);
+            this.lblWeight.Size = new System.Drawing.Size(72, 25);
             this.lblWeight.TabIndex = 0;
             this.lblWeight.Text = "Weight:";
             // 
@@ -204,7 +207,7 @@
             this.lblUserCaloriesTakenToday.Location = new System.Drawing.Point(238, 348);
             this.lblUserCaloriesTakenToday.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUserCaloriesTakenToday.Name = "lblUserCaloriesTakenToday";
-            this.lblUserCaloriesTakenToday.Size = new System.Drawing.Size(155, 30);
+            this.lblUserCaloriesTakenToday.Size = new System.Drawing.Size(127, 25);
             this.lblUserCaloriesTakenToday.TabIndex = 0;
             this.lblUserCaloriesTakenToday.Text = "Calories Intake";
             // 
@@ -214,7 +217,7 @@
             this.lblSurname.Location = new System.Drawing.Point(140, 103);
             this.lblSurname.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSurname.Name = "lblSurname";
-            this.lblSurname.Size = new System.Drawing.Size(104, 30);
+            this.lblSurname.Size = new System.Drawing.Size(86, 25);
             this.lblSurname.TabIndex = 0;
             this.lblSurname.Text = "Surname:";
             // 
@@ -224,7 +227,7 @@
             this.lblCaloriesTakenToday.Location = new System.Drawing.Point(21, 348);
             this.lblCaloriesTakenToday.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCaloriesTakenToday.Name = "lblCaloriesTakenToday";
-            this.lblCaloriesTakenToday.Size = new System.Drawing.Size(221, 30);
+            this.lblCaloriesTakenToday.Size = new System.Drawing.Size(179, 25);
             this.lblCaloriesTakenToday.TabIndex = 0;
             this.lblCaloriesTakenToday.Text = "Calories Taken Today:";
             // 
@@ -234,7 +237,7 @@
             this.lblheight.Location = new System.Drawing.Point(159, 152);
             this.lblheight.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblheight.Name = "lblheight";
-            this.lblheight.Size = new System.Drawing.Size(83, 30);
+            this.lblheight.Size = new System.Drawing.Size(69, 25);
             this.lblheight.TabIndex = 0;
             this.lblheight.Text = "Height:";
             // 
@@ -244,7 +247,7 @@
             this.lblUserCaloriesNeeded.Location = new System.Drawing.Point(238, 299);
             this.lblUserCaloriesNeeded.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUserCaloriesNeeded.Name = "lblUserCaloriesNeeded";
-            this.lblUserCaloriesNeeded.Size = new System.Drawing.Size(166, 30);
+            this.lblUserCaloriesNeeded.Size = new System.Drawing.Size(135, 25);
             this.lblUserCaloriesNeeded.TabIndex = 0;
             this.lblUserCaloriesNeeded.Text = "Calories to Take";
             // 
@@ -254,7 +257,7 @@
             this.lblName.Location = new System.Drawing.Point(166, 54);
             this.lblName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(76, 30);
+            this.lblName.Size = new System.Drawing.Size(63, 25);
             this.lblName.TabIndex = 0;
             this.lblName.Text = "Name:";
             // 
@@ -264,13 +267,22 @@
             this.lblCaloriesNeeded.Location = new System.Drawing.Point(63, 299);
             this.lblCaloriesNeeded.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCaloriesNeeded.Name = "lblCaloriesNeeded";
-            this.lblCaloriesNeeded.Size = new System.Drawing.Size(179, 30);
+            this.lblCaloriesNeeded.Size = new System.Drawing.Size(145, 25);
             this.lblCaloriesNeeded.TabIndex = 0;
             this.lblCaloriesNeeded.Text = "Calories Needed:";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(367, 54);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(129, 144);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 6;
+            this.pictureBox1.TabStop = false;
+            // 
             // frmMainPage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 30F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(175)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(563, 628);
@@ -283,6 +295,7 @@
             this.Load += new System.EventHandler(this.frmMainPage_Load);
             this.grpUserInformation.ResumeLayout(false);
             this.grpUserInformation.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -308,5 +321,6 @@
         private Label lblUserHeight;
         private Label lblUserLastName;
         private Label lblUserName;
+        private PictureBox pictureBox1;
     }
 }

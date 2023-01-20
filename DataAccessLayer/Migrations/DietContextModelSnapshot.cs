@@ -128,6 +128,11 @@ namespace DataAccessLayer.Migrations
                         .HasColumnType("nvarchar(20)")
                         .HasColumnOrder(7);
 
+                    b.Property<byte[]>("ProfilePhoto")
+                        .IsRequired()
+                        .HasColumnType("Image")
+                        .HasColumnOrder(13);
+
                     b.HasKey("Id");
 
                     b.HasIndex("AddressId")

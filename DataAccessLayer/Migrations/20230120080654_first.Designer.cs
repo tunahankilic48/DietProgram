@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccessLayer.Migrations
 {
     [DbContext(typeof(DietContext))]
-    [Migration("20230119221159_first")]
+    [Migration("20230120080654_first")]
     partial class first
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -129,6 +129,11 @@ namespace DataAccessLayer.Migrations
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)")
                         .HasColumnOrder(7);
+
+                    b.Property<byte[]>("ProfilePhoto")
+                        .IsRequired()
+                        .HasColumnType("Image")
+                        .HasColumnOrder(13);
 
                     b.HasKey("Id");
 

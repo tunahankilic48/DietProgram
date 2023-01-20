@@ -1,5 +1,6 @@
 ﻿using DataAccessLayer;
 using EntityLayer;
+using Microsoft.Data.SqlClient;
 using Microsoft.VisualBasic.ApplicationServices;
 using System;
 using System.Collections.Generic;
@@ -7,9 +8,16 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Windows.Storage.Streams;
+using Windows.Storage;
+using Windows.UI.Xaml.Media.Imaging;
+
+
+
 
 namespace UILayer
 {
@@ -21,7 +29,7 @@ namespace UILayer
             InitializeComponent();
         }
 
-        private void frmNewAccount_Load(object sender, EventArgs e)
+        private void frmNewAccount_Load(object sender, EventArgs e )
         {
             context = new DietContext();
 
@@ -37,8 +45,22 @@ namespace UILayer
 
         #region Buttons
 
+        private void btnUploadPic_Click_1(object sender, EventArgs e)
+        {
+            OpenFileDialog open = new OpenFileDialog();
+            open.FileName = "";
+            open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
 
-        private void btnCreate_Click_1(object sender, EventArgs e)
+            if (open.ShowDialog() == DialogResult.OK)
+            {
+                // display image in picture box  
+                pictureBox1.Load(open.FileName);
+
+            }
+
+        }
+
+        private async void btnCreate_Click_1(object sender, EventArgs e)
         {
             AppUser newUser = new AppUser()
             {
@@ -66,56 +88,23 @@ namespace UILayer
             weightsAndHeights.ModifiedDate = DateTime.Now;
             weightsAndHeights.CreatedDate = DateTime.Now;
 
-
             context.AppUsers.Add(newUser);
             context.Addresses.Add(address);
             context.UsersWeightsAndHeights.Add(weightsAndHeights);
             context.SaveChanges();
 
-            MessageBox.Show("Aşama 1", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
             newUser.AddressId = address.Id;
-            address.UserId= newUser.Id;
+            address.UserId = newUser.Id;
             weightsAndHeights.AppUserId = newUser.Id;
 
+            var image = new ImageConverter().ConvertTo(pictureBox1.Image, typeof(Byte[]));
+            newUser.ProfilePhoto = (byte[])image;
+
             context.SaveChanges();
-
-
-            MessageBox.Show("Aşama2", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            // newUser.Address.Country = cbbCountry -- Bir adressin 1 citysi ve bir ulkesi olur seklinde duzeltilecek
-
-
         }
         #endregion
 
-        #region Methots
-        private bool IsPasswordsSame()
-        {
-            return (txtPassword.Text == txtPasswordAgain.Text); //buraya password kosullari eklenebilir
-
-        }
-
-        private bool areRequiredDetailsFilled()
-        {
-            bool result = true;
-            if ((rdbFemale.Checked == false) && (rdbMale.Checked == false))
-            {
-                result = false;
-            }
-            foreach (var item in grpCreateNewAccount.Controls)
-            {
-                if (item is TextBox)
-                {
-                    result = !(((TextBox)item).Text == null);
-                }
-                if (item is ComboBox)
-                {
-                    result = !(((ComboBox)item).Text == null);
-                }
-                //picture tarafi da eklenecek
-            }
-            return result;
-        }
+        #region Methods
         #endregion
 
     }
