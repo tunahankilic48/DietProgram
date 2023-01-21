@@ -30,7 +30,7 @@ namespace UILayer
         /// </summary>
         void FillTheUserInformation()
         {
-            weightsAndHeights = context.UsersWeightsAndHeights.Where(x => x.AppUserId == _user.Id).OrderByDescending(x => x.CreatedDate).FirstOrDefault();
+            weightsAndHeights = context.UsersWeightsAndHeights.Where(x => x.UserId == _user.Id).OrderByDescending(x => x.CreatedDate).FirstOrDefault();
             weightsAndHeights.AppUser = _user;
             lblUserName.Text = _user.Name;
             lblUserLastName.Text = _user.LastName;
@@ -38,22 +38,28 @@ namespace UILayer
             lblUserWeight.Text = weightsAndHeights.Weight.ToString() + " kg";
             lblUserBodyMassIndex.Text = weightsAndHeights.BodyMassIndex.ToString();
             lblUserCaloriesNeeded.Text = weightsAndHeights.DailyRequiredCalori.ToString() + " Calorie";
-            var meals = context.Meals.Where(x => x.UserId == _user.Id).Where(x=>x.MealDate == DateTime.Now.Date).ToList();
-            int totalCalorie = 0;
+            var meals = context.Meals.Where(x => x.UserId == _user.Id).Where(x => x.MealDate == DateTime.Now.Date).ToList();
+            List<MealContent> mealContents = new List<MealContent>();
             foreach (var item in meals)
             {
-                totalCalorie = (int)context.MealContents.Where(x=>x.MealId == item.Id).Sum(x=>x.TotalCalorie);
+                mealContents.AddRange(context.MealContents.Where(x => x.MealId == item.Id).ToList());
+            }
+            int totalCalorie = 0;
+            foreach (var item in mealContents)
+            {
+                item.Product = context.Products.Find(item.ProductId);
+                totalCalorie += (int)item.TotalCalorie;
 
             }
-            lblUserCaloriesTakenToday.Text = totalCalorie.ToString();
+            lblUserCaloriesTakenToday.Text = totalCalorie.ToString() + " Calorie";
 
-            //MemoryStream ms = new MemoryStream(_user.ProfilePhoto, 0, _user.ProfilePhoto.Length);
-            //ms.Write(_user.ProfilePhoto, 0, _user.ProfilePhoto.Length);
-            //pictureBox1.Image =  Image.FromStream(ms, true);//Exception occurs here
+            MemoryStream ms = new MemoryStream(_user.ProfilePhoto, 0, _user.ProfilePhoto.Length);
+            ms.Write(_user.ProfilePhoto, 0, _user.ProfilePhoto.Length);
+            pictureBox1.Image = Image.FromStream(ms, true);//Exception occurs here
         }
         private void frmMainPage_Load(object sender, EventArgs e)
         {
-            context= new DietContext();
+            context = new DietContext();
             FillTheUserInformation();
         }
         private void btnMeal_Click(object sender, EventArgs e)

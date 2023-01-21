@@ -10,13 +10,14 @@ namespace EntityLayer
     {
         public City()
         {
+            CreatedDate = DateTime.Now;
             Addresses = new List<Address>();
         }
         public string? Name { get; set; }
         public int? CountryId { get; set; }
 
         // Navigation Properties
-        public Country? Country{ get; set; }
+        public Country? Country { get; set; }
         public List<Address> Addresses { get; set; }
 
 

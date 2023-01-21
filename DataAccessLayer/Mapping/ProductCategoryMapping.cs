@@ -24,7 +24,7 @@ namespace DataAccessLayer.Mapping
 
             builder.Property(x => x.Name)
                 .IsRequired()
-                .HasMaxLength(20)
+                .HasMaxLength(30)
                 .HasColumnType("nvarchar")
                 .HasColumnOrder(2); // First Name is Required, max length can be 20 characters and data type will be nvarchar in the database
 
@@ -36,7 +36,8 @@ namespace DataAccessLayer.Mapping
             builder.Property(x => x.ModifiedDate)
                 .IsRequired()
                 .HasColumnType("smalldatetime")
-                .HasColumnOrder(4); // Data type will be date, which means 'dd/mm/yyyy hh:mm:ss' in the database
+                .HasColumnOrder(4)
+                .HasDefaultValueSql("getdate()"); // Data type will be date, which means 'dd/mm/yyyy hh:mm:ss' in the database
 
         }
     }

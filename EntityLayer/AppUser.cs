@@ -12,11 +12,10 @@ namespace EntityLayer
     {
         public AppUser()
         {
+            CreatedDate = DateTime.Now;
             Meals = new List<Meal>();
-
             WeightsAndHeights = new List<WeightsAndHeights>();
         }
-        // to do: default values will be added in the created date 
         public string? FirstName { get; set; }
         public string? MiddleName { get; set; }
         public string? LastName { get; set; }
@@ -27,6 +26,7 @@ namespace EntityLayer
         public bool? IsMale { get; set; }
         public bool? IsActive { get; set; }
         public int? AddressId { get; set; }
+        public DateTime? ModifiedDate { get; set; }
 
 
         // Navigation Properties

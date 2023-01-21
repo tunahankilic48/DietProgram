@@ -10,7 +10,8 @@ namespace EntityLayer
     {
         public MealCategory()
         {
-            Meals= new List<Meal>();
+            CreatedDate = DateTime.Now;
+            Meals = new List<Meal>();
         }
         public string? Name { get; set; }
 

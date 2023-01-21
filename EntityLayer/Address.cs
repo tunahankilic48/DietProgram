@@ -6,11 +6,15 @@ using System.Threading.Tasks;
 
 namespace EntityLayer
 {
-    public class Address: BaseClass
+    public class Address : BaseClass
     {
-        
+        public Address()
+        {
+            CreatedDate = DateTime.Now;
+        }
         public int? CityId { get; set; }
         public int? UserId { get; set; }
+        public DateTime? ModifiedDate { get; set; }
 
         // Navigation Properties
 

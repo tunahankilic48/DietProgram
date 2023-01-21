@@ -28,16 +28,21 @@ namespace DataAccessLayer.Mapping
                 .HasColumnType("smallint")
                 .HasColumnOrder(3); // Data type will be smallint in the database 
 
+            builder.Property(x => x.ModifiedDate)
+                   .IsRequired()
+                   .HasColumnType("date")
+                   .HasColumnOrder(4); // Data type will be date, which means 'dd/mm/yyyy hh:mm:ss' in the database
 
             builder.Property(x => x.CreatedDate)
                    .IsRequired()
                    .HasColumnType("smalldatetime")
-                   .HasColumnOrder(4); // Data type will be date, which means 'dd/mm/yyyy hh:mm:ss' in the database
+                   .HasColumnOrder(5); // Data type will be date, which means 'dd/mm/yyyy hh:mm:ss' in the database
 
             builder.Property(x => x.ModifiedDate)
                    .IsRequired()
                    .HasColumnType("smalldatetime")
-                   .HasColumnOrder(5); // Data type will be date, which means 'dd/mm/yyyy hh:mm:ss' in the database
+                   .HasColumnOrder(6)
+                   .HasDefaultValueSql("getdate()"); // Data type will be date, which means 'dd/mm/yyyy hh:mm:ss' in the database
 
             builder.Ignore(x => x.TotalCalorie); // Not mapped
         }

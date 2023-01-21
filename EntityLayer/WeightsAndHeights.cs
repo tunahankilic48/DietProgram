@@ -8,10 +8,14 @@ namespace EntityLayer
 {
     public class WeightsAndHeights : BaseClass
     {
+        public WeightsAndHeights()
+        {
+            CreatedDate = DateTime.Now;
+        }
+
         public int? Height { get; set; }
         public decimal? Weight { get; set; }
-
-        public int? AppUserId { get; set; }
+        public int? UserId { get; set; }
 
         public decimal? BodyMassIndex //boy ve kilo 
         {

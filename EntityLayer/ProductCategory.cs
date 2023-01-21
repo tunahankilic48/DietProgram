@@ -10,10 +10,12 @@ namespace EntityLayer
     {
         public ProductCategory()
         {
+            CreatedDate = DateTime.Now;
             Products = new List<Product>();
         }
 
         public string? Name { get; set; }
+        public DateTime? ModifiedDate { get; set; }
 
         // Navigation Properties
         public List<Product>? Products { get; set; }

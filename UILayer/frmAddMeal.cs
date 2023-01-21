@@ -124,8 +124,7 @@ namespace UILayer
                         mealContent.MealId = currentMeal.Id;
                         mealContent.ProductId = selectedProduct.Id;
                         mealContent.Quantity = (int)nudQuan.Value;
-                        mealContent.CreatedDate = DateTime.Now;
-                        mealContent.ModifiedDate = dtpMealDate.Value;
+                        mealContent.ModifiedDate = DateTime.Now;
                         mealContent.Product = selectedProduct;
                         try
                         {
@@ -170,8 +169,8 @@ namespace UILayer
                     Meal meal = new Meal();
                     meal.UserId = _user.Id;
                     meal.MealCategoryId = (int)cbbMeal.SelectedValue;
-                    meal.CreatedDate = DateTime.Now;
-                    meal.ModifiedDate = dtpMealDate.Value;
+                    meal.MealDate = dtpMealDate.Value;
+                    meal.ModifiedDate = DateTime.Now;
                     try
                     {
                         context.Meals.Add(meal);

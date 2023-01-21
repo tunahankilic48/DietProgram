@@ -33,7 +33,7 @@ namespace UILayer
         /// </summary>
         void ListTodgvMealsInSelectedDate()
         {
-            var meals = context.Meals.Where(x => x.ModifiedDate == dtpDateSelection.Value.Date).Where(x => x.UserId == _user.Id).Select(x => new
+            var meals = context.Meals.Where(x => x.MealDate == dtpDateSelection.Value.Date).Where(x => x.UserId == _user.Id).Select(x => new
             {
                 Name = x.User.Name + " " + x.User.LastName,
                 Meal = x.MealCategory.Name,
@@ -144,8 +144,9 @@ namespace UILayer
                     try
                     {
                         context.MealContents.Remove(selectedMealContent); // All changes will remove from database
+                        Meal meal = context.Meals.Find(selectedMeal);
+                        meal.ModifiedDate = DateTime.Now; // To update meal modified date
                         context.SaveChanges();
-
                     }
                     catch (Exception ex)
                     {
@@ -156,6 +157,7 @@ namespace UILayer
                 lblProductNameInput.Text = null;
                 lblUnitCalorieInput.Text = null;
                 lblTotalCalorieInput.Text = null;
+                
                 selectedMealContent = null;
 
                 ListTodgvProductsInSelectedMeal();
