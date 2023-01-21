@@ -39,7 +39,9 @@ namespace UILayer
             if (user != null)
             {
                 string from, userMail, password, messageBody, verificationCode;
-                verificationCode = rnd.Next(10000, 100000).ToString();
+
+                verificationCode = rnd.Next(100000, 1000000).ToString();
+
                 MailMessage message = new MailMessage();
 
                 from = "dietchecker3@gmail.com";

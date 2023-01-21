@@ -197,6 +197,7 @@
             this.pictureBox1.Location = new System.Drawing.Point(727, 66);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(121, 134);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
             // 
@@ -239,6 +240,7 @@
             this.txtPasswordAgain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(236)))), ((int)(((byte)(238)))));
             this.txtPasswordAgain.Location = new System.Drawing.Point(193, 322);
             this.txtPasswordAgain.Name = "txtPasswordAgain";
+            this.txtPasswordAgain.PasswordChar = '*';
             this.txtPasswordAgain.Size = new System.Drawing.Size(335, 38);
             this.txtPasswordAgain.TabIndex = 6;
             // 
@@ -309,6 +311,7 @@
             this.txtPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(236)))), ((int)(((byte)(238)))));
             this.txtPassword.Location = new System.Drawing.Point(193, 271);
             this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(335, 38);
             this.txtPassword.TabIndex = 5;
             this.txtPassword.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);

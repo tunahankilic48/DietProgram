@@ -31,15 +31,22 @@ namespace UILayer
         void FillTheUserInformation()
         {
             weightsAndHeights = context.UsersWeightsAndHeights.Where(x => x.UserId == _user.Id).OrderByDescending(x => x.CreatedDate).FirstOrDefault();
+
             weightsAndHeights.AppUser = _user;
+
             lblUserName.Text = _user.Name;
             lblUserLastName.Text = _user.LastName;
             lblUserHeight.Text = weightsAndHeights.Height.ToString() + " cm";
             lblUserWeight.Text = weightsAndHeights.Weight.ToString() + " kg";
+
             lblUserBodyMassIndex.Text = weightsAndHeights.BodyMassIndex.ToString();
+
             lblUserCaloriesNeeded.Text = weightsAndHeights.DailyRequiredCalori.ToString() + " Calorie";
+
             var meals = context.Meals.Where(x => x.UserId == _user.Id).Where(x => x.MealDate == DateTime.Now.Date).ToList();
+
             List<MealContent> mealContents = new List<MealContent>();
+
             foreach (var item in meals)
             {
                 mealContents.AddRange(context.MealContents.Where(x => x.MealId == item.Id).ToList());
@@ -53,9 +60,12 @@ namespace UILayer
             }
             lblUserCaloriesTakenToday.Text = totalCalorie.ToString() + " Calorie";
 
-            MemoryStream ms = new MemoryStream(_user.ProfilePhoto, 0, _user.ProfilePhoto.Length);
-            ms.Write(_user.ProfilePhoto, 0, _user.ProfilePhoto.Length);
-            pictureBox1.Image = Image.FromStream(ms, true);//Exception occurs here
+            if (_user.ProfilePhoto != null)
+            {
+                MemoryStream ms = new MemoryStream(_user.ProfilePhoto, 0, _user.ProfilePhoto.Length);
+                ms.Write(_user.ProfilePhoto, 0, _user.ProfilePhoto.Length);
+                pictureBox1.Image = Image.FromStream(ms, true);//Exception occurs here
+            }
         }
         private void frmMainPage_Load(object sender, EventArgs e)
         {
