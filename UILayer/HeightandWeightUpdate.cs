@@ -43,9 +43,7 @@ namespace UILayer
                     WeightsAndHeights weightsAndHeights = new WeightsAndHeights();
                     weightsAndHeights.Weight = weight;
                     weightsAndHeights.Height = height;
-                    weightsAndHeights.AppUserId = _weightsAndHeights.AppUserId;
-                    weightsAndHeights.CreatedDate = DateTime.Now;
-                    weightsAndHeights.ModifiedDate = DateTime.Now;
+                    weightsAndHeights.UserId = _weightsAndHeights.UserId;
                     try
                     {
                         context.UsersWeightsAndHeights.Add(weightsAndHeights);

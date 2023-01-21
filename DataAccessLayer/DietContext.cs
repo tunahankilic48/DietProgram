@@ -19,7 +19,6 @@ namespace DataAccessLayer
         public DbSet<Country> Countries { get; set; }
         public DbSet<City> Cities { get; set; }
         public DbSet<ProductCategory> ProductCategories { get; set; }
-
         public DbSet<WeightsAndHeights> UsersWeightsAndHeights { get; set; }
         public DbSet<MealContent> MealContents { get; set; }
 

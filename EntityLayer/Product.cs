@@ -14,9 +14,9 @@ namespace EntityLayer
         }   
         public string? Name { get; set; }
         public int? Calorie { get; set; }
-        public string? QuantityPerUnit { get; set; } // Fluent api
-
+        public string? QuantityPerUnit { get; set; }
         public int ProductCategoryId { get; set; }
+        public DateTime? ModifiedDate { get; set; }
 
         // Navigation Property
         public ProductCategory ProductCategory { get; set; }

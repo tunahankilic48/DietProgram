@@ -61,23 +61,17 @@ namespace UILayer
                 Email = txtEmail.Text,
                 Password = txtPassword.Text,
                 IsMale = rdbMale.Checked,
-                ModifiedDate = DateTime.Now,
-                CreatedDate = DateTime.Now,
                 IsActive = true
             };
 
             Address address = new Address();
 
             address.CityId = (int)cbbCity.SelectedValue;
-            address.ModifiedDate = DateTime.Now;
-            address.CreatedDate = DateTime.Now;
 
             WeightsAndHeights weightsAndHeights = new WeightsAndHeights();
 
             weightsAndHeights.Weight = decimal.Parse(txtWeight.Text);
             weightsAndHeights.Height = int.Parse(txtHeight.Text);
-            weightsAndHeights.ModifiedDate = DateTime.Now;
-            weightsAndHeights.CreatedDate = DateTime.Now;
 
             context.AppUsers.Add(newUser);
             context.Addresses.Add(address);
@@ -86,7 +80,7 @@ namespace UILayer
 
             newUser.AddressId = address.Id;
             address.UserId = newUser.Id;
-            weightsAndHeights.AppUserId = newUser.Id;
+            weightsAndHeights.UserId = newUser.Id;
 
             var image = new ImageConverter().ConvertTo(pictureBox1.Image, typeof(Byte[]));
             newUser.ProfilePhoto = (byte[])image;
