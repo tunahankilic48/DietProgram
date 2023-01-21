@@ -29,15 +29,20 @@ namespace DataAccessLayer.Mapping
                 .IsRequired()
                 .HasColumnOrder(3);
 
+            builder.Property(x => x.MealDate)
+                .IsRequired()
+                .HasColumnType("date")
+                .HasColumnOrder(4); // Data type will be date, which means 'dd/mm/yyyy hh:mm:ss' in the database
+
             builder.Property(x => x.CreatedDate)
                 .IsRequired()
                 .HasColumnType("smalldatetime")
-                .HasColumnOrder(4); // Data type will be date, which means 'dd/mm/yyyy hh:mm:ss' in the database
+                .HasColumnOrder(5); // Data type will be date, which means 'dd/mm/yyyy hh:mm:ss' in the database
 
             builder.Property(x => x.ModifiedDate)
                 .IsRequired()
                 .HasColumnType("smalldatetime")
-                .HasColumnOrder(5); // Data type will be date, which means 'dd/mm/yyyy hh:mm:ss' in the database
+                .HasColumnOrder(6); // Data type will be date, which means 'dd/mm/yyyy hh:mm:ss' in the database
 
             builder.HasOne<AppUser>(x=>x.User)
                 .WithMany(x=>x.Meals)

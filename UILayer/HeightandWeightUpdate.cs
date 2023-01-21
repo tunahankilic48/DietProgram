@@ -12,6 +12,8 @@ using System.Windows.Forms;
 
 namespace UILayer
 {
+    // to do: güncellemeyecek yeni satır ekleyecek kullanıcıyada en son tarihli olanı gösterecek
+
     public partial class HeightandWeightUpdate : Form
     {
         private WeightsAndHeights _weightsAndHeights;

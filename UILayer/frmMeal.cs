@@ -76,7 +76,6 @@ namespace UILayer
         private void frmMeal_Load(object sender, EventArgs e)
         {
             context = new DietContext();
-            _user = context.AppUsers.Find(1); // silinecek !!!!
             btnDeleteSelectedMeal.Enabled = false;
             btnDeleteProduct.Enabled = false;
             btnChangeQuantity.Enabled = false;
@@ -109,6 +108,8 @@ namespace UILayer
                     context.SaveChanges();
                 }
                 selectedMeal = 0;
+
+                // to do: datagrid yenilecek
             }
             else
                 MessageBox.Show("Please choose a meal.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);

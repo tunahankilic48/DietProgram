@@ -29,7 +29,7 @@ namespace UILayer
         {
             context= new DietContext();
             weightsAndHeights = context.UsersWeightsAndHeights.Where(x => x.AppUserId == _user.Id).OrderByDescending(x => x.CreatedDate).FirstOrDefault();
-            weightsAndHeights.AppUser= _user;
+            weightsAndHeights.AppUser= _user; // bakılıcak
             lblUserName.Text = _user.Name;
             lblUserLastName.Text = _user.LastName;
             lblUserHeight.Text = weightsAndHeights.Height.ToString() + " cm";
@@ -37,9 +37,9 @@ namespace UILayer
             lblUserBodyMassIndex.Text = weightsAndHeights.BodyMassIndex.ToString();
             lblUserCaloriesNeeded.Text = weightsAndHeights.DailyRequiredCalori.ToString() + " Calorie";
 
-            MemoryStream ms = new MemoryStream(_user.ProfilePhoto, 0, _user.ProfilePhoto.Length);
-            ms.Write(_user.ProfilePhoto, 0, _user.ProfilePhoto.Length);
-            pictureBox1.Image =  Image.FromStream(ms, true);//Exception occurs here
+            //MemoryStream ms = new MemoryStream(_user.ProfilePhoto, 0, _user.ProfilePhoto.Length);
+            //ms.Write(_user.ProfilePhoto, 0, _user.ProfilePhoto.Length);
+            //pictureBox1.Image =  Image.FromStream(ms, true);//Exception occurs here
 
             
 

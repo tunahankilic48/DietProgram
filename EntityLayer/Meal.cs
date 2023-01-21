@@ -14,6 +14,7 @@ namespace EntityLayer
         }
         public int? UserId { get; set; }
         public int? MealCategoryId { get; set; }
+        public DateTime? MealDate { get; set; }
 
         // Navigation Properties
         public AppUser? User { get; set; }
