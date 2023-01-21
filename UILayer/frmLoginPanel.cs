@@ -5,12 +5,12 @@ namespace UILayer
 {
     public partial class frmLoginPanel : Form
     {
+        DietContext context;
         public frmLoginPanel()
         {
             InitializeComponent();
         }
 
-        DietContext context;
         private void frmLoginPanel_Load(object sender, EventArgs e)
         {
             context = new DietContext();

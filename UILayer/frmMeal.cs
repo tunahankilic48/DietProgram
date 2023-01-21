@@ -81,7 +81,6 @@ namespace UILayer
             btnChangeQuantity.Enabled = false;
             btnAddNewProduct.Enabled = false;
         }
-
         private void btnShowMeals_Click(object sender, EventArgs e)
         {
             ListTodgvMealsInSelectedDate();
@@ -103,25 +102,30 @@ namespace UILayer
                 DialogResult answer = MessageBox.Show("The meal will be deleted. Are you sure?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (answer == DialogResult.Yes)
                 {
-                    Meal delete = context.Meals.Find(selectedMeal);
-                    context.Meals.Remove(delete); // All changes will remove from database
-                    context.SaveChanges();
+                    try
+                    {
+                        Meal delete = context.Meals.Find(selectedMeal);
+                        context.Meals.Remove(delete); // All changes will remove from database
+                        context.SaveChanges();
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
                 }
                 selectedMeal = 0;
-
-                // to do: datagrid yenilecek
+                ListTodgvMealsInSelectedDate();
             }
             else
                 MessageBox.Show("Please choose a meal.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
-
         private void btnAddNewMeal_Click(object sender, EventArgs e)
         {
             frmAddMeal frm = new frmAddMeal(this, _user);
             frm.Show();
             this.Hide();
         }
-
         private void dgvProductsInSelectedMeal_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             selectedMealContent = context.MealContents.Find((int)dgvProductsInSelectedMeal.CurrentRow.Cells["MealId"].Value, (int)dgvProductsInSelectedMeal.CurrentRow.Cells["ProductId"].Value);
@@ -137,9 +141,16 @@ namespace UILayer
                 DialogResult answer = MessageBox.Show("The product will be deleted. Are you sure?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (answer == DialogResult.Yes)
                 {
+                    try
+                    {
+                        context.MealContents.Remove(selectedMealContent); // All changes will remove from database
+                        context.SaveChanges();
 
-                    context.MealContents.Remove(selectedMealContent); // All changes will remove from database
-                    context.SaveChanges();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
                 }
                 selectedMealContent = null;
                 lblProductNameInput.Text = null;
@@ -158,16 +169,23 @@ namespace UILayer
             {
                 frmChangeQuantity frm = new frmChangeQuantity(this);
                 frm.ShowDialog();
-                selectedMealContent.Quantity = newQuantity;
-                context.SaveChanges();
-                selectedMealContent = null;
+                try
+                {
+                    selectedMealContent.Quantity = newQuantity;
+                    context.SaveChanges();
+                    selectedMealContent = null;
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
 
                 ListTodgvProductsInSelectedMeal();
             }
             else
                 MessageBox.Show("Please choose a product.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
-
         private void btnReturnMainPage_Click(object sender, EventArgs e)
         {
             _frmMainPage.Show();

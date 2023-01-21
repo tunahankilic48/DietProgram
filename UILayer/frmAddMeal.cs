@@ -127,9 +127,16 @@ namespace UILayer
                         mealContent.CreatedDate = DateTime.Now;
                         mealContent.ModifiedDate = dtpMealDate.Value;
                         mealContent.Product = selectedProduct;
+                        try
+                        {
+                            context.MealContents.Add(mealContent); // Meal content added to the database
+                            context.SaveChanges();
 
-                        context.MealContents.Add(mealContent); // Meal content added to the database
-                        context.SaveChanges();
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message);
+                        }
                         ListdgvMealContent();
                         selectedProduct = null;
                     }
@@ -165,9 +172,16 @@ namespace UILayer
                     meal.MealCategoryId = (int)cbbMeal.SelectedValue;
                     meal.CreatedDate = DateTime.Now;
                     meal.ModifiedDate = dtpMealDate.Value;
+                    try
+                    {
+                        context.Meals.Add(meal);
+                        context.SaveChanges();
 
-                    context.Meals.Add(meal);
-                    context.SaveChanges();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
                     currentMeal = meal;
 
                     dtpMealDate.Enabled = false;
@@ -192,9 +206,16 @@ namespace UILayer
         }
         private void btnDeleteProduct_Click(object sender, EventArgs e)
         {
+            try
+            {
+                context.MealContents.Remove(willDeleteProduct);
+                context.SaveChanges();
 
-            context.MealContents.Remove(willDeleteProduct);
-            context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
             ListdgvMealContent();
         }
@@ -208,8 +229,16 @@ namespace UILayer
             DialogResult answer = MessageBox.Show("All changes will be deleted. Are you sure?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (answer == DialogResult.Yes)
             {
-                context.Meals.Remove(currentMeal); // All changes will remove from database
-                context.SaveChanges();
+                try
+                {
+                    context.Meals.Remove(currentMeal); // All changes will remove from database
+                    context.SaveChanges();
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
 
                 _frmMeal.Show();
                 this.Close();
@@ -249,7 +278,6 @@ namespace UILayer
         private void dgvProduct_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             selectedProduct = context.Products.Find((int)dgvProduct.CurrentRow.Cells["Id"].Value); // It will find the selected product
-
         }
     }
 }
