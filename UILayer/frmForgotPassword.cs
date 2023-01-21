@@ -16,6 +16,7 @@ namespace UILayer
 {
     public partial class frmForgotPassword : Form
     {
+        // to do: admin kullanıcı database eklenip çekilebilir.
         DietContext context;
         Random rnd;
         private frmLoginPanel _frmLogin;

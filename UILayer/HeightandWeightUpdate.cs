@@ -12,8 +12,6 @@ using System.Windows.Forms;
 
 namespace UILayer
 {
-    // to do: güncellemeyecek yeni satır ekleyecek kullanıcıyada en son tarihli olanı gösterecek
-
     public partial class HeightandWeightUpdate : Form
     {
         private WeightsAndHeights _weightsAndHeights;
@@ -34,27 +32,35 @@ namespace UILayer
             erpWeight = new ErrorProvider();
             erpWeight = new ErrorProvider();
         }
-
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             decimal weight = 0;
             int height = 0;
             if (decimal.TryParse(txtWeight.Text, out weight) && int.TryParse(txtHeight.Text, out height) && !string.IsNullOrEmpty(txtWeight.Text) && !string.IsNullOrEmpty(txtHeight.Text) && weight > 0 && height > 0)
             {
-                _weightsAndHeights.Weight = weight;
-                _weightsAndHeights.Height = height;
-                context.UsersWeightsAndHeights.Update(_weightsAndHeights);
-                try
+                if (!(_weightsAndHeights.Weight == weight && _weightsAndHeights.Height == height))
                 {
-                    context.SaveChanges();
-                    MessageBox.Show("Height and weight have updated successfully", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    _frm.Show();
-                    this.Close();
+                    WeightsAndHeights weightsAndHeights = new WeightsAndHeights();
+                    weightsAndHeights.Weight = weight;
+                    weightsAndHeights.Height = height;
+                    weightsAndHeights.AppUserId = _weightsAndHeights.AppUserId;
+                    weightsAndHeights.CreatedDate = DateTime.Now;
+                    weightsAndHeights.ModifiedDate = DateTime.Now;
+                    try
+                    {
+                        context.UsersWeightsAndHeights.Add(weightsAndHeights);
+                        context.SaveChanges();
+                        MessageBox.Show("Height and weight have updated successfully.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        _frm.Show();
+                        this.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
+                else
+                    MessageBox.Show("Height and weight cannot be same with the current height and weight.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
