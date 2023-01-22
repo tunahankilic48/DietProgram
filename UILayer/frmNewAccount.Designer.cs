@@ -110,7 +110,7 @@
             this.lblPasword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblPasword.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point);
             this.lblPasword.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.lblPasword.Location = new System.Drawing.Point(534, 285);
+            this.lblPasword.Location = new System.Drawing.Point(534, 303);
             this.lblPasword.Name = "lblPasword";
             this.lblPasword.Size = new System.Drawing.Size(2, 19);
             this.lblPasword.TabIndex = 16;
@@ -118,7 +118,7 @@
             // rdbFemale
             // 
             this.rdbFemale.AutoSize = true;
-            this.rdbFemale.Location = new System.Drawing.Point(887, 323);
+            this.rdbFemale.Location = new System.Drawing.Point(923, 323);
             this.rdbFemale.Name = "rdbFemale";
             this.rdbFemale.Size = new System.Drawing.Size(108, 35);
             this.rdbFemale.TabIndex = 12;
@@ -129,7 +129,7 @@
             // rdbMale
             // 
             this.rdbMale.AutoSize = true;
-            this.rdbMale.Location = new System.Drawing.Point(727, 325);
+            this.rdbMale.Location = new System.Drawing.Point(759, 323);
             this.rdbMale.Name = "rdbMale";
             this.rdbMale.Size = new System.Drawing.Size(86, 35);
             this.rdbMale.TabIndex = 11;
@@ -162,6 +162,7 @@
             this.cbbCountry.Name = "cbbCountry";
             this.cbbCountry.Size = new System.Drawing.Size(335, 39);
             this.cbbCountry.TabIndex = 7;
+            this.cbbCountry.SelectedIndexChanged += new System.EventHandler(this.cbbCountry_SelectedIndexChanged);
             // 
             // lblCity
             // 
@@ -184,7 +185,7 @@
             // btnUploadPic
             // 
             this.btnUploadPic.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(249)))), ((int)(((byte)(251)))));
-            this.btnUploadPic.Location = new System.Drawing.Point(887, 159);
+            this.btnUploadPic.Location = new System.Drawing.Point(875, 159);
             this.btnUploadPic.Name = "btnUploadPic";
             this.btnUploadPic.Size = new System.Drawing.Size(175, 41);
             this.btnUploadPic.TabIndex = 14;
@@ -216,9 +217,9 @@
             // btnCreate
             // 
             this.btnCreate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(249)))), ((int)(((byte)(251)))));
-            this.btnCreate.Location = new System.Drawing.Point(606, 418);
+            this.btnCreate.Location = new System.Drawing.Point(727, 418);
             this.btnCreate.Name = "btnCreate";
-            this.btnCreate.Size = new System.Drawing.Size(456, 39);
+            this.btnCreate.Size = new System.Drawing.Size(323, 39);
             this.btnCreate.TabIndex = 15;
             this.btnCreate.Text = "Create";
             this.btnCreate.UseVisualStyleBackColor = false;
@@ -232,7 +233,7 @@
             this.dtpBirthDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpBirthDate.Location = new System.Drawing.Point(727, 371);
             this.dtpBirthDate.Name = "dtpBirthDate";
-            this.dtpBirthDate.Size = new System.Drawing.Size(335, 38);
+            this.dtpBirthDate.Size = new System.Drawing.Size(323, 38);
             this.dtpBirthDate.TabIndex = 13;
             // 
             // txtPasswordAgain
@@ -243,14 +244,16 @@
             this.txtPasswordAgain.PasswordChar = '*';
             this.txtPasswordAgain.Size = new System.Drawing.Size(335, 38);
             this.txtPasswordAgain.TabIndex = 6;
+            this.txtPasswordAgain.TextChanged += new System.EventHandler(this.txtPasswordAgain_TextChanged);
             // 
             // txtWeight
             // 
             this.txtWeight.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(236)))), ((int)(((byte)(238)))));
             this.txtWeight.Location = new System.Drawing.Point(727, 274);
             this.txtWeight.Name = "txtWeight";
-            this.txtWeight.Size = new System.Drawing.Size(335, 38);
+            this.txtWeight.Size = new System.Drawing.Size(323, 38);
             this.txtWeight.TabIndex = 10;
+            this.txtWeight.TextChanged += new System.EventHandler(this.txtWeight_TextChanged);
             // 
             // txtEmail
             // 
@@ -260,7 +263,6 @@
             this.txtEmail.Size = new System.Drawing.Size(335, 38);
             this.txtEmail.TabIndex = 4;
             this.txtEmail.TextChanged += new System.EventHandler(this.txtEmail_TextChanged);
-            this.txtEmail.Leave += new System.EventHandler(this.txtEmail_Leave);
             // 
             // lblBirthDate
             // 
@@ -305,6 +307,7 @@
             this.txtMiddleName.Name = "txtMiddleName";
             this.txtMiddleName.Size = new System.Drawing.Size(335, 38);
             this.txtMiddleName.TabIndex = 2;
+            this.txtMiddleName.TextChanged += new System.EventHandler(this.txtMiddleName_TextChanged);
             // 
             // txtPassword
             // 
@@ -323,8 +326,9 @@
             this.txtHeight.ImeMode = System.Windows.Forms.ImeMode.Hiragana;
             this.txtHeight.Location = new System.Drawing.Point(727, 223);
             this.txtHeight.Name = "txtHeight";
-            this.txtHeight.Size = new System.Drawing.Size(335, 38);
+            this.txtHeight.Size = new System.Drawing.Size(323, 38);
             this.txtHeight.TabIndex = 9;
+            this.txtHeight.TextChanged += new System.EventHandler(this.txtHeight_TextChanged);
             // 
             // lblPassword
             // 
@@ -342,6 +346,7 @@
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(335, 38);
             this.txtLastName.TabIndex = 3;
+            this.txtLastName.TextChanged += new System.EventHandler(this.txtLastName_TextChanged);
             // 
             // lblLength
             // 
@@ -377,6 +382,7 @@
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(335, 38);
             this.txtFirstName.TabIndex = 1;
+            this.txtFirstName.TextChanged += new System.EventHandler(this.txtFirstName_TextChanged);
             // 
             // lblFirstName
             // 
@@ -420,7 +426,6 @@
         private Label lblWeigth;
         private Label lblEmail;
         private TextBox txtMiddleName;
-        private TextBox txtHeight;
         private TextBox txtLastName;
         private Label lblLength;
         private Label lblMiddleName;
@@ -441,5 +446,6 @@
         private RadioButton rdbFemale;
         private RadioButton rdbMale;
         private Label lblPasword;
+        private TextBox txtHeight;
     }
 }

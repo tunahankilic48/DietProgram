@@ -60,7 +60,7 @@ namespace UILayer
             }
             lblUserCaloriesTakenToday.Text = totalCalorie.ToString() + " Calorie";
 
-            if (_user.ProfilePhoto != null)
+            if (_user.ProfilePhoto.Length != 0)
             {
                 MemoryStream ms = new MemoryStream(_user.ProfilePhoto, 0, _user.ProfilePhoto.Length);
                 ms.Write(_user.ProfilePhoto, 0, _user.ProfilePhoto.Length);
@@ -86,9 +86,9 @@ namespace UILayer
         }
         private void btnUpdateAccountInformation_Click(object sender, EventArgs e)
         {
-            frmNewAccount frm = new frmNewAccount();// to do: yapılacak
-            frm.Show();
-            this.Hide();
+            //frmNewAccount frm = new frmNewAccount(this);// to do: yapılacak
+            //frm.Show();
+            //this.Hide();
         }
         private void btnHeightandWeightUpdate_Click(object sender, EventArgs e)
         {
