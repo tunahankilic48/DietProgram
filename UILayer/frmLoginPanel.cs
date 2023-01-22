@@ -47,7 +47,7 @@ namespace UILayer
         }
         private void lblCreateANewAccount_Click(object sender, EventArgs e)
         {
-            frmNewAccount frm = new frmNewAccount(); // to do: içerisine bu form verilecek sonrasında
+            frmNewAccount frm = new frmNewAccount(this); // to do: içerisine bu form verilecek sonrasında
             frm.Show();
             this.Hide();
         }
