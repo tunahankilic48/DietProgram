@@ -22,8 +22,8 @@ namespace UILayer
 
         public frmMainPage(AppUser user)
         {
-            InitializeComponent();
             _user = user;
+            InitializeComponent();
         }
         /// <summary>
         /// This method fills user information in the main page

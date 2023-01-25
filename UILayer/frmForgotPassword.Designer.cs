@@ -70,7 +70,7 @@
             this.txtEmail.Location = new System.Drawing.Point(133, 49);
             this.txtEmail.Margin = new System.Windows.Forms.Padding(2);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(326, 36);
+            this.txtEmail.Size = new System.Drawing.Size(326, 31);
             this.txtEmail.TabIndex = 1;
             // 
             // lblEmail
@@ -80,14 +80,14 @@
             this.lblEmail.Location = new System.Drawing.Point(53, 52);
             this.lblEmail.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(79, 30);
+            this.lblEmail.Size = new System.Drawing.Size(65, 25);
             this.lblEmail.TabIndex = 0;
             this.lblEmail.Text = "E-Mail:";
             // 
             // frmForgotPassword
             // 
             this.AcceptButton = this.btnSendPassword;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 30F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(175)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(534, 194);
@@ -98,6 +98,7 @@
             this.Name = "frmForgotPassword";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DIET CHECKER";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmForgotPassword_FormClosing);
             this.Load += new System.EventHandler(this.frmForgotPassword_Load);
             this.grbForgotPassword.ResumeLayout(false);
             this.grbForgotPassword.PerformLayout();

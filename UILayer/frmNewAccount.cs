@@ -20,6 +20,10 @@ namespace UILayer
             InitializeComponent();
             _frm = frm;
         }
+        public frmNewAccount()
+        {
+            InitializeComponent();
+        }
         private void frmNewAccount_Load(object sender, EventArgs e)
         {
             context = new DietContext();
@@ -61,6 +65,12 @@ namespace UILayer
             lblPasword.Visible = false;
 
 
+        }
+
+        private void frmNewAccount_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            MessageBox.Show("Do you want to close without saving your changes?", "Warning!", MessageBoxButtons.YesNo,MessageBoxIcon.Warning);
+            _frm.Show();
         }
 
         #region Buttons
