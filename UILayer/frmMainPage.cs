@@ -80,7 +80,7 @@ namespace UILayer
         }
         private void btnReports_Click(object sender, EventArgs e)
         {
-            frmReports frm = new frmReports();// to do: yapılacak
+            frmReports frm = new frmReports(this, _user);// to do: yapılacak
             frm.Show();
             this.Hide();
         }
