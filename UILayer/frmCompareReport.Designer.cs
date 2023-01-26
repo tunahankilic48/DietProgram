@@ -137,6 +137,7 @@
             this.dtpStartDate.Name = "dtpStartDate";
             this.dtpStartDate.Size = new System.Drawing.Size(212, 23);
             this.dtpStartDate.TabIndex = 0;
+            this.dtpStartDate.ValueChanged += new System.EventHandler(this.dtpStartDate_ValueChanged);
             // 
             // frmCompareReport
             // 

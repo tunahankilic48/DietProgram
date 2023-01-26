@@ -96,5 +96,10 @@ namespace UILayer
             frm.ShowDialog();
             FillTheUserInformation();
         }
+
+        private void lblUserBodyMassIndex_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
