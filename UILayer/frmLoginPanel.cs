@@ -17,12 +17,13 @@ namespace UILayer
         }
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            AppUser? user = context.AppUsers.Where(x => x.Email == txtEmail.Text).ToList().FirstOrDefault(); // Email check from database
-            if (user != null)
+            var user = context.AppUsers.Where(x => x.Email == txtEmail.Text).ToList(); // Email check from database
+            if (user[0] != null)
             {
-                if (user.Password == txtPassword.Text) // Password check
+                if (user[0].Password == txtPassword.Text) // Password check
                 {
-                    frmMainPage frm = new frmMainPage(user);
+                    frmMainPage frm = new frmMainPage(user[0]);
+                    MessageBox.Show($"{user[0].Id}");
                     frm.Show();
                     this.Hide();
                 }

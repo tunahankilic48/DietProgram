@@ -22,8 +22,8 @@ namespace UILayer
 
         public frmMainPage(AppUser user)
         {
-            InitializeComponent();
             _user = user;
+            InitializeComponent();
         }
         /// <summary>
         /// This method fills user information in the main page
@@ -80,7 +80,7 @@ namespace UILayer
         }
         private void btnReports_Click(object sender, EventArgs e)
         {
-            frmReports frm = new frmReports();// to do: yapılacak
+            frmReports frm = new frmReports(this, _user);// to do: yapılacak
             frm.Show();
             this.Hide();
         }

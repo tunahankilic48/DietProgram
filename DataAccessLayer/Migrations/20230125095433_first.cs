@@ -206,8 +206,7 @@ namespace DataAccessLayer.Migrations
                     ProductId = table.Column<int>(type: "int", nullable: false),
                     Quantity = table.Column<short>(type: "smallint", nullable: false),
                     CreatedDate = table.Column<DateTime>(type: "smalldatetime", nullable: false),
-                    ModifiedDate = table.Column<DateTime>(type: "smalldatetime", nullable: false, defaultValueSql: "getdate()"),
-                    MealDate = table.Column<DateTime>(type: "datetime2", nullable: true)
+                    ModifiedDate = table.Column<DateTime>(type: "smalldatetime", nullable: false, defaultValueSql: "getdate()")
                 },
                 constraints: table =>
                 {

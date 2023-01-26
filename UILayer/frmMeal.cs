@@ -33,7 +33,8 @@ namespace UILayer
         /// </summary>
         void ListTodgvMealsInSelectedDate()
         {
-            var meals = context.Meals.Where(x => x.MealDate == dtpDateSelection.Value.Date).Where(x => x.UserId == _user.Id).Select(x => new
+
+            var meals = context.Meals.Where(x => x.MealDate.Value == dtpDateSelection.Value.Date).Where(x => x.UserId == _user.Id).Select(x => new
             {
                 Name = x.User.Name + " " + x.User.LastName,
                 Meal = x.MealCategory.Name,
@@ -43,8 +44,9 @@ namespace UILayer
 
             lblMealDate.Text = dtpDateSelection.Value.ToShortDateString();
 
-            dgvMealsInSelectedDate.DataSource = meals;
+            dgvMealsInSelectedDate.DataSource = meals;  
             dgvMealsInSelectedDate.Columns["Id"].Visible = false;
+
         }
         /// <summary>
         /// It lists meal content of the meal for choosen date

@@ -126,6 +126,7 @@ namespace UILayer
                         mealContent.Quantity = (int)nudQuan.Value;
                         mealContent.ModifiedDate = DateTime.Now;
                         mealContent.Product = selectedProduct;
+                        
                         try
                         {
                             context.MealContents.Add(mealContent); // Meal content added to the database
@@ -258,7 +259,6 @@ namespace UILayer
 
             dtpMealDate.Value = DateTime.Now; // It sets the current value
             dtpMealDate.MaxDate = dtpMealDate.Value; // The max date cannot be more than today
-            _user = context.AppUsers.Find(1); // Silinecek
 
             FillcbbMeal();
             ListdgvProduct();
