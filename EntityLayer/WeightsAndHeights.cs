@@ -22,7 +22,7 @@ namespace EntityLayer
             get
             {
                 decimal squareOfLength = (decimal)Math.Pow((double)Height / 100, 2);
-                return Math.Round((decimal)Weight * squareOfLength, 2);
+                return Math.Round((decimal)Weight / squareOfLength, 2);
             }
         }
         public decimal? DailyRequiredCalori

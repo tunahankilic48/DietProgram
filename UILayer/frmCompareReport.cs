@@ -29,6 +29,8 @@ namespace UILayer
             _report = activeReport;
             InitializeComponent();
 
+            
+
         }
 
         private void frmCompareReport_FormClosing(object sender, FormClosingEventArgs e)
@@ -86,6 +88,9 @@ namespace UILayer
            lblUser.Text= $"{userTotalCalorie} kcal  (%{percent} {neededStr} average)";
         }
 
-
+        private void dtpStartDate_ValueChanged(object sender, EventArgs e)
+        {
+            dtpEndDate.MinDate = dtpStartDate.Value;
+        }
     }
 }

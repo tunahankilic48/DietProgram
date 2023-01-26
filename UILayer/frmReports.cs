@@ -45,6 +45,9 @@ namespace UILayer
         private void label3_Click(object sender, EventArgs e)
         {
 
+            frmProductRatesReport frm = new frmProductRatesReport(this, _user);
+            frm.Show();
+            this.Hide();
         }
 
         private void pnlDailyReports_Paint(object sender, PaintEventArgs e)

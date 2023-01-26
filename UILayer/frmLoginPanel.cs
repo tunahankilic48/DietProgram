@@ -23,7 +23,6 @@ namespace UILayer
                 if (user[0].Password == txtPassword.Text) // Password check
                 {
                     frmMainPage frm = new frmMainPage(user[0]);
-                    MessageBox.Show($"{user[0].Id}");
                     frm.Show();
                     this.Hide();
                 }

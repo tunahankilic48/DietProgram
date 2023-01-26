@@ -33,7 +33,6 @@
             this.grpUserInformation = new System.Windows.Forms.GroupBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblUserBodyMassIndex = new System.Windows.Forms.Label();
-            this.btnUpdateAccountInformation = new System.Windows.Forms.Button();
             this.btnHeightandWeightUpdate = new System.Windows.Forms.Button();
             this.lblUserWeight = new System.Windows.Forms.Label();
             this.lblUserHeight = new System.Windows.Forms.Label();
@@ -81,7 +80,6 @@
             this.grpUserInformation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(236)))), ((int)(((byte)(238)))));
             this.grpUserInformation.Controls.Add(this.pictureBox1);
             this.grpUserInformation.Controls.Add(this.lblUserBodyMassIndex);
-            this.grpUserInformation.Controls.Add(this.btnUpdateAccountInformation);
             this.grpUserInformation.Controls.Add(this.btnReports);
             this.grpUserInformation.Controls.Add(this.btnHeightandWeightUpdate);
             this.grpUserInformation.Controls.Add(this.lblUserWeight);
@@ -125,18 +123,7 @@
             this.lblUserBodyMassIndex.Size = new System.Drawing.Size(59, 25);
             this.lblUserBodyMassIndex.TabIndex = 5;
             this.lblUserBodyMassIndex.Text = "label7";
-            // 
-            // btnUpdateAccountInformation
-            // 
-            this.btnUpdateAccountInformation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(249)))), ((int)(((byte)(251)))));
-            this.btnUpdateAccountInformation.Location = new System.Drawing.Point(279, 635);
-            this.btnUpdateAccountInformation.Margin = new System.Windows.Forms.Padding(4);
-            this.btnUpdateAccountInformation.Name = "btnUpdateAccountInformation";
-            this.btnUpdateAccountInformation.Size = new System.Drawing.Size(250, 80);
-            this.btnUpdateAccountInformation.TabIndex = 0;
-            this.btnUpdateAccountInformation.Text = "UPDATE ACCOUNT INFORMATION";
-            this.btnUpdateAccountInformation.UseVisualStyleBackColor = false;
-            this.btnUpdateAccountInformation.Click += new System.EventHandler(this.btnUpdateAccountInformation_Click);
+            this.lblUserBodyMassIndex.Click += new System.EventHandler(this.lblUserBodyMassIndex_Click);
             // 
             // btnHeightandWeightUpdate
             // 
@@ -144,7 +131,7 @@
             this.btnHeightandWeightUpdate.Location = new System.Drawing.Point(9, 635);
             this.btnHeightandWeightUpdate.Margin = new System.Windows.Forms.Padding(4);
             this.btnHeightandWeightUpdate.Name = "btnHeightandWeightUpdate";
-            this.btnHeightandWeightUpdate.Size = new System.Drawing.Size(250, 80);
+            this.btnHeightandWeightUpdate.Size = new System.Drawing.Size(520, 80);
             this.btnHeightandWeightUpdate.TabIndex = 0;
             this.btnHeightandWeightUpdate.Text = "HEIGHT AND WEIGHT UPDATE";
             this.btnHeightandWeightUpdate.UseVisualStyleBackColor = false;
@@ -315,7 +302,6 @@
         private Label lblName;
         private Label lblCaloriesNeeded;
         private Button btnHeightandWeightUpdate;
-        private Button btnUpdateAccountInformation;
         private Label lblUserBodyMassIndex;
         private Label lblUserWeight;
         private Label lblUserHeight;

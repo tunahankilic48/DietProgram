@@ -20,6 +20,10 @@ namespace UILayer
             InitializeComponent();
             _frm = frm;
         }
+
+
+
+
         public frmNewAccount()
         {
             InitializeComponent();
