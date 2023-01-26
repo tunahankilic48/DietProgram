@@ -37,6 +37,9 @@ namespace UILayer
         private void label2_Click(object sender, EventArgs e)
         {
 
+            frmCompareReport frm = new frmCompareReport(this, _user);
+            frm.Show();
+            this.Hide();
         }
 
         private void label3_Click(object sender, EventArgs e)
